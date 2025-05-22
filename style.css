@@ -308,3 +308,7 @@ iconify-icon {
   /* font-size: var(--f-unit-4); */
   scale: 1.5;
 }
+h2 {
+  color: var(--accent-mint);
+  margin-bottom: var(--sp4);
+}
