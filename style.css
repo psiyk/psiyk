@@ -1,245 +1,218 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-@font-face {
-  font-family: "Satoshi-Variable";
-  src: url("fonts/Satoshi-Variable.woff2") format("woff2"),
-    url("fonts/Satoshi-Variable.woff") format("woff"),
-    url("fonts/Satoshi-Variable.ttf") format("truetype");
-  font-weight: 300 900;
-  font-display: swap;
-  font-style: normal;
+/* @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+html {
+  font-size: 80%;
 }
 :root {
-  --f-fam-1: "DM Sans", sans-serif;
-  --f-fam-2: "Inter", sans-serif;
-  --f-fam-3: "Satoshi", sans-serif;
+  interpolate-size: allow-keywords;
+  --font-1: "Playfair Display", sans-serif;
+  --font-2: "Plus Jakarta Sans", sans-serif;
+  --font-3: "DM sans", sans-serif;
 
-  --space-xxs: 0.25rem; /* 4px */
-  --space-xs: 0.5rem; /* 8px */
-  --space-sm: 0.75rem; /* 12px */
-  --space-md: 1rem; /* 16px */
-  --space-lg: 1.5rem; /* 24px */
-  --space-xl: 2rem; /* 32px */
-  --space-2xl: 3rem; /* 48px */
-  --space-3xl: 4rem; /* 64px */
-  --space-4xl: 5rem; /* 80px */
-  --space-5xl: 7.5rem; /* 120px */
+  --sp1: 0.25rem;
+  --sp2: 0.5rem;
+  --sp3: 0.75rem;
+  --sp4: 1rem;
+  --sp5: 1.25rem;
+  --sp6: 1.5rem;
+  --sp7: 1.75rem;
+  --sp8: 2rem;
+  --sp9: 2.5rem;
 
-  --v-space-s: max(4vw, var(--space-md));
-  /* SIZING (Containers, cards, etc.) */
-  --size-container-sm: 33.75rem; /* 540px */
-  --size-container-md: 48rem; /* 768px */
-  --size-container-lg: 64rem; /* 1024px */
-  --size-container-xl: 80rem; /* 1280px */
+  --vp-1: 2vw;
+  --vp-2: 4vw;
 
-  --size-card-sm: 15rem; /* 240px */
-  --size-card-md: 20rem; /* 320px */
-  --size-card-lg: 26.25rem; /* 420px */
+  --bl-1: 5rem;
+  --bl-2: 10rem;
+  --bl-3: 15rem;
 
-  --size-avatar-sm: 2rem; /* 32px */
-  --size-avatar-md: 3rem; /* 48px */
-  --size-avatar-lg: 4rem; /* 64px */
+  /* --card-w-1: 18rem; */
+  --card-w-1: max(15rem, calc((92vw - (var(--gap-4) * 4)) * 0.21));
 
-  --size-button-height: 2.75rem; /* 44px */
-  --size-input-height: 3rem; /* 48px */
+  --card-w-1-min: calc((92vw - var(--gap-2)) / 2.1);
+  /* --card-w-1-min: 18rem; */
 
-  /* FONT SIZE SCALE */
-  --font-xs: 0.75rem; /* 12px */
-  --font-sm: 0.875rem; /* 14px */
-  --font-md: 1rem; /* 16px */
-  --font-lg: 1.125rem; /* 18px */
-  --font-xl: 1.5rem; /* 24px */
-  --font-2xl: 2rem; /* 32px */
-  --font-3xl: 2.5rem; /* 40px */
-  --font-4xl: 3.5rem; /* 56px */
+  --f-unit-1: 0.5rem;
+  --f-unit-2: 0.8rem;
+  --f-unit-3: 1rem;
+  --f-unit-4: 1.25rem;
+  --f-unit-5: 2rem;
 
-  /* LINE HEIGHTS */
-  --line-tight: 1.2;
-  --line-normal: 1.5;
-  --line-loose: 1.75;
+  --f-v-0: max(1.25rem, 1.5vw);
+  --f-v-1: max(1.5rem, 2vw);
+  --f-v-2: max(2rem, 4vw);
+  --f-v-3: max(4rem, 6vw);
+  --f-v-4: max(4rem, 8vw);
 
-  /* FONT WEIGHTS */
-  --weight-regular: 400;
-  --weight-medium: 500;
-  --weight-semibold: 600;
-  --weight-bold: 700;
-
-  /* BORDER RADIUS */
-  --radius-sm: 0.375rem; /* 6px */
-  --radius-md: 0.75rem; /* 12px */
-  --radius-lg: 1.25rem;
-
-  --bd: 1px solid;
+  --bd: 1.5px solid;
   --bd2: 2px solid;
 
-  /* === Brand Colors === */
-  --clr-brand: hsl(221, 83%, 53%);
-  --clr-brand-light: hsl(221, 83%, 63%);
-  --clr-brand-dark: hsl(221, 83%, 43%);
+  --bd-radius-1: 2px;
+  --bd-radius-1-5: 0.35rem;
+  --bd-radius-1: 0.5rem;
+  --bd-radius-1-8: 0.85rem;
+  --bd-radius-2: 1rem;
+  --bd-radius-3: 1.5rem;
+  --bd-radius-4: 2rem;
 
-  /* === Accent === */
-  --clr-accent: hsl(275, 65%, 59%);
-  --clr-accent-light: hsl(275, 65%, 69%);
-  --clr-accent-dark: hsl(275, 65%, 49%);
+  --gap-1: 0.5rem;
+  --gap-2: 1rem;
+  --gap-3: 1.5rem;
+  --gap-4: 2rem;
 
-  /* === Backgrounds === */
-  --clr-bg-primary: hsl(220, 18%, 98%);
-  --clr-bg-secondary: hsl(220, 18%, 95%);
-  --clr-bg-tertiary: hsl(220, 18%, 90%);
+  /* Text colors */
+  --txt-primary: #1a1a1a;
+  --txt-secondary: #555555;
+  --txt-light: #ffffff;
+  --txt-muted: #999999;
+  --txt-accent: #49ff92;
+  --txt-tertiary: #cccccc;
+  --txt-light-secondary: #f5f5f5;
+  --txt-light-tertiary: #e0e0e0;
 
-  --clr-surface: hsl(0, 0%, 100%);
-  --clr-surface-alt: hsl(220, 18%, 96%);
+  /* Backgrounds (60%) */
+  --bg-primary: rgb(248, 250, 248);
+  --bg-primary-op: rgba(248, 250, 248, 0.93);
+  --bg-secondary: rgb(230, 235, 230);
+  --bg-tertiary: rgb(210, 220, 210);
 
-  /* === Text & Neutrals === */
-  --clr-text: hsl(220, 15%, 20%);
-  --clr-text-light: hsl(220, 15%, 40%);
-  --clr-text-lighter: hsl(220, 15%, 60%);
-  --clr-border: hsl(220, 15%, 88%);
-  --clr-muted: hsl(220, 15%, 93%);
+  /* Supporting color (30%) */
+  --support-blue: rgb(46, 68, 88);
+  --support-blue-light: rgb(92, 122, 148);
 
-  /* === Extra Neutrals for Contrast === */
-  --clr-gray-95: hsl(0, 0%, 95%);
-  --clr-gray-10: hsl(0, 0%, 10%);
+  /* Accent color (10%) */
+  --accent-mint: rgb(73, 255, 146);
+  --accent-mint-light: rgb(173, 255, 214);
+  --accent-mint-muted: rgb(144, 234, 185);
 
-  /* === Semantic State Colors === */
-  --clr-success: hsl(142, 63%, 42%);
-  --clr-success-light: hsl(142, 63%, 72%);
-  --clr-success-dark: hsl(142, 63%, 32%);
+  /* Accent backgrounds and text */
+  --accent-mint-bg-primary: rgb(20, 60, 40);
+  --accent-mint-bg-secondary: rgb(30, 90, 60);
+  --accent-mint-bg-tertiary: rgb(60, 120, 90);
 
-  --clr-warning: hsl(39, 100%, 50%);
-  --clr-warning-light: hsl(39, 100%, 75%);
-  --clr-warning-dark: hsl(39, 100%, 40%);
+  --accent-mint-txt-primary: rgb(240, 255, 245);
+  --accent-mint-txt-secondary: rgb(200, 255, 225);
+  --accent-mint-txt-tertiary: rgb(150, 225, 190);
 
-  --clr-error: hsl(354, 70%, 54%);
-  --clr-error-light: hsl(354, 70%, 80%);
-  --clr-error-dark: hsl(354, 70%, 44%);
+  /* Gradients */
+  --gradient-mint-light: linear-gradient(
+    45deg,
+    var(--accent-mint),
+    var(--accent-mint-light),
+    var(--accent-mint-muted)
+  );
+  --gradient-mint-dark: linear-gradient(
+    90deg,
+    var(--accent-mint),
+    var(--support-blue)
+  );
+
+  /* Highlight */
+  --highlight: var(--accent-mint);
+  --highlight-muted: var(--accent-mint-muted);
+
+  /* Transition */
+  --tran: 0.4s ease-in-out;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    /* === Brand Colors (tweaked for dark mode visibility) === */
-    --clr-brand: hsl(221, 83%, 70%);
-    --clr-brand-light: hsl(221, 83%, 75%);
-    --clr-brand-dark: hsl(221, 83%, 60%);
+    --bg-primary: rgb(18, 22, 20);
+    --bg-primary-op: rgba(18, 22, 20, 0.93);
+    --bg-secondary: rgb(30, 35, 32);
+    --bg-tertiary: rgb(45, 55, 50);
 
-    /* === Accent === */
-    --clr-accent: hsl(275, 80%, 75%);
-    --clr-accent-light: hsl(275, 80%, 82%);
-    --clr-accent-dark: hsl(275, 80%, 65%);
+    --txt-primary: #f5f5f5;
+    --txt-secondary: #cccccc;
+    --txt-light: #ffffff;
+    --txt-muted: #999999;
+    --txt-accent: var(--accent-mint);
+    --txt-tertiary: #aaaaaa;
 
-    /* === Backgrounds === */
-    --clr-bg-primary: hsl(220, 18%, 10%);
-    --clr-bg-secondary: hsl(220, 18%, 15%);
-    --clr-bg-tertiary: hsl(220, 18%, 20%);
+    --support-blue: rgb(135, 160, 180);
+    --support-blue-light: rgb(80, 100, 120);
 
-    --clr-surface: hsl(220, 18%, 13%);
-    --clr-surface-alt: hsl(220, 18%, 18%);
+    --accent-mint: rgb(73, 255, 146);
+    --accent-mint-light: rgb(180, 255, 220);
+    --accent-mint-muted: rgb(110, 220, 160);
 
-    /* === Text & Neutrals === */
-    --clr-text: hsl(0, 0%, 100%);
-    --clr-text-light: hsl(0, 0%, 80%);
-    --clr-text-lighter: hsl(0, 0%, 60%);
-    --clr-border: hsl(0, 0%, 35%);
-    --clr-muted: hsl(220, 15%, 25%);
+    --accent-mint-bg-primary: rgb(15, 40, 30);
+    --accent-mint-bg-secondary: rgb(25, 70, 50);
+    --accent-mint-bg-tertiary: rgb(50, 90, 70);
 
-    /* === Extra Neutrals for Contrast === */
-    --clr-gray-95: hsl(0, 0%, 5%);
-    --clr-gray-10: hsl(0, 0%, 90%);
+    --accent-mint-txt-primary: rgb(235, 255, 245);
+    --accent-mint-txt-secondary: rgb(180, 245, 215);
+    --accent-mint-txt-tertiary: rgb(130, 210, 175);
 
-    /* === Semantic State Colors === */
-    --clr-success: hsl(142, 63%, 55%);
-    --clr-success-light: hsl(142, 63%, 70%);
-    --clr-success-dark: hsl(142, 63%, 40%);
-
-    --clr-warning: hsl(39, 100%, 60%);
-    --clr-warning-light: hsl(39, 100%, 70%);
-    --clr-warning-dark: hsl(39, 100%, 50%);
-
-    --clr-error: hsl(354, 70%, 65%);
-    --clr-error-light: hsl(354, 70%, 75%);
-    --clr-error-dark: hsl(354, 70%, 55%);
+    --gradient-mint-dark: linear-gradient(
+      90deg,
+      var(--accent-mint),
+      var(--support-blue)
+    );
+    --highlight: var(--accent-mint);
+    --highlight-muted: var(--accent-mint-muted);
   }
 }
-html {
-  font-size: 0.8;
+* {
+  font-family: var(--f-unit-1);
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: var(--font-2);
+  color: inherit;
 }
 a,
 button {
   display: block;
 }
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-  list-style: none;
-  font-optical-sizing: auto;
-  color: var(--clr-text);
-  font-family: var(--f-fam-1);
+header {
+  /* border: 1px solid #000; */
+  padding: var(--sp4) var(--vp-2);
 }
 body {
-  background-color: var(--clr-bg-primary);
-  color: var(--clr-text);
-}
-.logo,
-.header-wrapper,
-header nav ul {
-  display: flex;
-  align-items: center;
-  /* justify-content: center; */
-  gap: var(--space-xxs);
-  /* border: 1px solid #000; */
-}
-.logo h1 {
-  font-size: var(--font-lg);
-  font-weight: var(--weight-medium);
-}
-header {
-  padding: var(--space-md);
+  background-color: var(--bg-primary);
+  color: var(--txt-primary);
 }
 .header-wrapper {
+  display: flex;
   justify-content: space-between;
-  max-width: var(--size-container-lg);
-  margin-inline: auto;
+  align-items: center;
 }
-header {
-  background-color: var(--clr-bg-primary);
-  position: sticky;
-  top: 0;
+.header-wrapper nav {
+  display: flex;
+  gap: var(--gap-2);
+  align-items: center;
+  /* border: 1px solid #000; */
 }
-header .header-wrapper a {
+.header-wrapper .logo {
+  display: flex;
+  gap: var(--gap-1);
+}
+.logo h1 {
+  display: flex;
+  /* height: 20px; */
+  line-height: 0;
+  align-items: center;
+  color: var(--txt-accent);
+  font-size: var(--f-unit-4);
+}
+.header-wrapper nav a {
   font-weight: 500;
-  padding: var(--space-xxs) var(--space-xs);
-  border-radius: var(--radius-md);
-  background-color: var(--clr-bg-primary);
-  color: var(--clr-text-light);
-}
-.header-wrapper a:hover,
-.header-wrapper a:focus {
-  color: var(--clr-text);
-  /* background-color: var(--clr-bg-tertiary); */
+  letter-spacing: -60%;
 }
 .header-wrapper a.cta {
-  border: var(--bd);
-  max-height: var(--size-button-height);
-  /* color: var(--clr-accent); */
-  padding: var(--space-xs) var(--space-sm);
-  /* letter-spacing: -1px; */
-  /* background-color: var(--clr-accent-light); */
-}
-.header-wrapper a.cta:hover,
-.header-wrapper a.cta:focus {
-  background-color: var(--clr-bg-tertiary);
+  padding: var(--sp3) var(--sp5);
+  border: var(--bd2) var(--txt-secondary);
+  border-radius: var(--bd-radius-2);
 }
 section {
-  padding: var(--space-md);
-  max-width: var(--size-container-lg);
-  margin-inline: auto;
+  padding: var(--sp4) var(--vp-2);
+  margin-bottom: var(--sp8);
 }
 section .hero-text {
-  min-height: var(--size-card-md);
+  /* min-height: 30dvh; */
+  padding-top: calc(var(--sp9) * 2);
   display: flex;
-  border: var(--bd);
-  flex-flow: column;
-  justify-content: end;
-}
-section .hero-text h1 {
-  font-weight: var(--weight-medium);
+  border: 1px solid #000;
 }
