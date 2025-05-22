@@ -42,6 +42,7 @@ html {
   --f-v-0: max(1.25rem, 1.5vw);
   --f-v-1: max(1.5rem, 2vw);
   --f-v-2: max(2rem, 4vw);
+  --f-v-2-5: max(3rem, 4vw);
   --f-v-3: max(4rem, 6vw);
   --f-v-4: max(4rem, 8vw);
 
@@ -63,8 +64,28 @@ html {
 
   /* Text colors */
   --txt-primary: #1a1a1a;
+  --txt-primary-dark: #1a1a1a;
   --txt-secondary: #555555;
-  --txt-light: #ffffff;
+  --txt-light-dark: #ffffff;
+  --txt-light: #ffffff; /* Brand Colors */
+  --brand: hsl(275, 64%, 59%);
+  --brand-text: hsl(0, 0%, 100%);
+
+  /* Accent Button */
+  --btn-accent-bg: var(--brand);
+  --btn-accent-text: var(--brand-text);
+  --btn-accent-border: hsl(275, 64%, 50%);
+
+  /* White Button */
+  --btn-white-bg: hsl(0, 0%, 100%);
+  --btn-white-text: hsl(0, 0%, 10%);
+  --btn-white-border: hsl(0, 0%, 90%);
+
+  /* Black Button */
+  --btn-black-bg: hsl(0, 0%, 10%);
+  --btn-black-text: hsl(0, 0%, 100%);
+  --btn-black-border: hsl(0, 0%, 20%);
+
   --txt-muted: #999999;
   --txt-accent: #49ff92;
   --txt-tertiary: #cccccc;
@@ -103,7 +124,7 @@ html {
     var(--accent-mint-muted)
   );
   --gradient-mint-dark: linear-gradient(
-    90deg,
+    180deg,
     var(--accent-mint),
     var(--support-blue)
   );
@@ -117,6 +138,21 @@ html {
 }
 @media (prefers-color-scheme: dark) {
   :root {
+    --brand: hsl(275, 64%, 67%);
+    --brand-text: hsl(0, 0%, 10%);
+
+    --btn-accent-bg: var(--brand);
+    --btn-accent-text: var(--brand-text);
+    --btn-accent-border: hsl(275, 64%, 55%);
+
+    --btn-white-bg: hsl(0, 0%, 100%);
+    --btn-white-text: hsl(0, 0%, 10%);
+    --btn-white-border: hsl(0, 0%, 80%);
+
+    --btn-black-bg: hsl(0, 0%, 0%);
+    --btn-black-text: hsl(0, 0%, 100%);
+    --btn-black-border: hsl(0, 0%, 30%);
+
     --bg-primary: rgb(18, 22, 20);
     --bg-primary-op: rgba(18, 22, 20, 0.93);
     --bg-secondary: rgb(30, 35, 32);
@@ -211,8 +247,64 @@ section {
   margin-bottom: var(--sp8);
 }
 section .hero-text {
-  /* min-height: 30dvh; */
+  min-height: 30dvh;
   padding-top: calc(var(--sp9) * 2);
   display: flex;
-  border: 1px solid #000;
+  gap: var(--gap-2);
+  flex-direction: column;
+  /* border: 1px solid #000; */
+  justify-content: end;
+}
+.hero-text h1 {
+  font-size: var(--f-v-2) !important;
+}
+.hero-text p {
+  max-width: 40rem;
+  text-wrap: pretty;
+  font-size: var(--f-unit-3);
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.cta-btns {
+  display: flex;
+  gap: var(--gap-2);
+}
+.cta-btns .cta {
+  display: flex;
+  gap: var(--sp2);
+  align-items: center;
+  border: var(--bd) var(--bg-tertiary);
+  box-shadow: 0px 1px 3px -1px var(--bg-tertiary),
+    0px 1px 3px -2px var(--bg-tertiary);
+  /* border-bottom: var(--bd); */
+  padding: var(--sp4);
+  font-weight: 500;
+  /* background-color: var(--nd); */
+  color: var(--txt-light);
+  border-radius: var(--sp3);
+  /* background-image: var(--gradient-mint-light); */
+  background-size: 200% 200%;
+  background-position: center center;
+}
+.cta-btns .cta:first-child {
+  background-color: var(--btn-black-bg);
+  border-color: var(--btn-accent-border);
+  color: var(--btn-black-text);
+}
+
+.cta-btns .cta:nth-child(2) {
+  background-color: var(--btn-white-bg);
+  border-color: var(--btn-white-border);
+  color: var(--btn-white-text);
+}
+
+.cta-btns .cta:nth-child(3) {
+  background-color: var(--btn-black-bg);
+  border-color: var(--brand-text);
+  color: var(--btn-black-text);
+}
+iconify-icon {
+  /* font-size: var(--f-unit-4); */
+  scale: 1.5;
 }
