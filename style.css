@@ -135,9 +135,34 @@ html {
 
   /* Transition */
   --tran: 0.4s ease-in-out;
+
+  --html-hs: 14, 80%;
+  --css-hs: 212, 80%;
+  --js-hs: 45, 100%;
+  --python-hs: 220, 45%;
+  --react-hs: 193, 90%;
+  --tailwind-hs: 185, 70%;
+  --bootstrap-hs: 263, 50%;
+  --git-hs: 14, 80%;
+  --github-hs: 0, 0%;
+  --vscode-hs: 220, 80%;
+  --devtools-hs: 200, 70%;
+  --responsive-hs: 170, 60%;
+  --restapi-hs: 280, 45%;
+  --seo-hs: 125, 45%;
+
+  --text-l: 45%;
+  --border-l: 65%;
+  --bg-l: 45%;
+  --bg-a: 0.1;
 }
 @media (prefers-color-scheme: dark) {
   :root {
+    --text-l: 75%;
+    --border-l: 55%;
+    --bg-l: 70%;
+    --bg-a: 0.1;
+
     --brand: hsl(275, 64%, 67%);
     --brand-text: hsl(0, 0%, 10%);
 
@@ -153,10 +178,10 @@ html {
     --btn-black-text: hsl(0, 0%, 100%);
     --btn-black-border: hsl(0, 0%, 30%);
 
-    --bg-primary: rgb(18, 22, 20);
-    --bg-primary-op: rgba(18, 22, 20, 0.93);
-    --bg-secondary: rgb(30, 35, 32);
-    --bg-tertiary: rgb(45, 55, 50);
+    --bg-primary: hsl(150, 10%, 3%);
+    --bg-primary-op: hsla(150, 10%, 3%, 0.93);
+    --bg-secondary: hsl(144, 8%, 8%);
+    --bg-tertiary: hsl(150, 10%, 15%);
 
     --txt-primary: #f5f5f5;
     --txt-secondary: #cccccc;
@@ -204,6 +229,9 @@ button {
 }
 header {
   /* border: 1px solid #000; */
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-primary-op);
   padding: var(--sp4) var(--vp-2);
 }
 body {
@@ -214,6 +242,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 80rem;
+  margin-inline: auto;
 }
 .header-wrapper nav {
   display: flex;
@@ -235,16 +265,23 @@ body {
 }
 .header-wrapper nav a {
   font-weight: 500;
-  letter-spacing: -60%;
+  /* letter-spacing: -60%; */
 }
 .header-wrapper a.cta {
-  padding: var(--sp3) var(--sp5);
-  border: var(--bd2) var(--txt-secondary);
+  padding: var(--sp4);
+  border: var(--bd) var(--bg-tertiary);
+  background-color: var(--bg-secondary);
   border-radius: var(--bd-radius-2);
+  color: var(--txt-primary);
+  font-weight: bold;
+  box-shadow: 0px 1px 3px -1px var(--bg-tertiary),
+    inset 0px 1px 3px -2px var(--bg-tertiary);
 }
 section {
   padding: var(--sp4) var(--vp-2);
   margin-bottom: var(--sp8);
+  max-width: 80rem;
+  margin-inline: auto;
 }
 section .hero-text {
   min-height: 30dvh;
@@ -256,7 +293,8 @@ section .hero-text {
   justify-content: end;
 }
 .hero-text h1 {
-  font-size: var(--f-v-2) !important;
+  font-size: max(3.5rem, var(--f-v-2)) !important;
+  line-height: 1;
 }
 .hero-text p {
   max-width: 40rem;
@@ -311,4 +349,97 @@ iconify-icon {
 h2 {
   color: var(--accent-mint);
   margin-bottom: var(--sp4);
+}
+.skills li {
+  --bg-c: hsla(var(--x-hs), var(--bg-l), var(--bg-a));
+  --tx-c: hsl(var(--x-hs), var(--text-l));
+  --bd-c: hsl(var(--x-hs), var(--border-l));
+  display: flex;
+  gap: var(--sp4);
+  padding: var(--sp4);
+  align-items: center;
+  background-color: var(--bg-c);
+  border: var(--bd) var(--bd-c);
+  color: var(--tx-c);
+  border-radius: var(--bd-radius-2);
+  font-weight: 500;
+  transition: filter var(--tran);
+  cursor: pointer;
+}
+.skills h3 {
+  margin-bottom: var(--sp2);
+  font-size: var(--f-unit-2);
+  font-weight: 500;
+}
+.skills .section-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-2);
+}
+.skills .wrapper {
+  display: inline-block;
+  border: var(--bd) var(--bg-secondary);
+  padding: var(--sp4);
+  border-radius: calc(var(--bd-radius-2) + var(--sp4));
+  flex-grow: 1;
+}
+.skills ul {
+  display: flex;
+  gap: var(--sp2);
+  flex-wrap: wrap;
+}
+li.html {
+  --x-hs: var(--html-hs);
+}
+li.css {
+  --x-hs: var(--css-hs);
+}
+li.js {
+  --x-hs: var(--js-hs);
+}
+li.py {
+  --x-hs: var(--python-hs);
+}
+li.py {
+  --x-hs: var(--python-hs);
+}
+li.react {
+  --x-hs: var(--react-hs);
+}
+
+li.tailwind {
+  --x-hs: var(--tailwind-hs);
+}
+
+li.bootstrap {
+  --x-hs: var(--bootstrap-hs);
+}
+
+li.git {
+  --x-hs: var(--git-hs);
+}
+li.github {
+  --x-hs: var(--github-hs);
+}
+
+li.vscode {
+  --x-hs: var(--vscode-hs);
+}
+
+li.dev {
+  --x-hs: var(--devtools-hs);
+}
+
+li.res {
+  --x-hs: var(--responsive-hs);
+}
+
+li.api {
+  --x-hs: var(--restapi-hs);
+}
+li.seo {
+  --x-hs: var(--seo-hs);
+}
+section.skills .wrapper:hover:has(li:hover) li:not(li:hover) {
+  filter: blur(2px);
 }
