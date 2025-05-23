@@ -222,6 +222,7 @@ html {
   list-style: none;
   font-family: var(--font-2);
   color: inherit;
+  box-sizing: border-box;
 }
 a,
 button {
@@ -229,6 +230,9 @@ button {
 }
 header {
   /* border: 1px solid #000; */
+  z-index: 1000;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   position: sticky;
   top: 0;
   background-color: var(--bg-primary-op);
@@ -381,7 +385,10 @@ h2 {
   border: var(--bd) var(--bg-secondary);
   padding: var(--sp4);
   border-radius: calc(var(--bd-radius-2) + var(--sp4));
-  flex-grow: 1;
+  /* flex-grow: 1; */
+  @media screen and (max-width: 500px) {
+    flex-grow: 1;
+  }
 }
 .skills ul {
   display: flex;
@@ -442,4 +449,66 @@ li.seo {
 }
 section.skills .wrapper:hover:has(li:hover) li:not(li:hover) {
   filter: blur(2px);
+}
+section.projects .section-wrapper {
+  /* display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, ((80rem - var(--vp-2) / 3) - var(--gap-2)), 20rem), 1fr)
+  );
+  gap: var(--gap-2); */
+  /* place-content: center; */
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  gap: var(--gap-2);
+  overflow-x: auto;
+}
+section.projects figure.wrapper {
+  /* --section-width: calc(80rem - (2 * var(--vp-2))); */
+  width: min(25rem, 100%);
+  min-width: 22.5rem;
+  /* min-width: min(25rem, 100%); */
+  /* width: max(20rem, var(--section-width) / 3); */
+  border: var(--bd) var(--bg-tertiary);
+  min-height: 28rem;
+  padding: var(--sp3);
+  border-radius: calc(var(--bd-radius-2) + var(--sp3));
+}
+.projects figure > a {
+  /* width: calc(100% - 2px); */
+  height: calc(0.5 * 20rem);
+  overflow: hidden;
+  border: var(--bd) var(--bg-tertiary);
+  margin-bottom: var(--sp3);
+  border-radius: var(--bd-radius-2) var(--bd-radius-2) var(--bd-radius-1-5)
+    var(--bd-radius-1-5);
+}
+figure img {
+  object-fit: cover;
+  width: 100%;
+}
+figure h4 {
+  font-size: var(--sp6);
+  margin-bottom: var(--sp2);
+}
+figure p {
+  line-height: 1.6;
+  color: var(--txt-secondary);
+  padding-left: 0;
+  border-left: var(--sp1) solid transparent;
+  max-height: 4lh;
+  font-weight: 500;
+  transition: padding-left var(--tran), border var(--tran), color var(--tran);
+}
+figure:hover p {
+  padding-left: var(--sp3);
+  border-color: var(--accent-mint-bg-secondary);
+  color: var(--txt-primary);
+}
+figure:hover h4 {
+  color: var(--txt-secondary);
+}
+.wrapper.zama {
+  /* background-color: hsla(39, 96%, 81%, 0.5); */
 }
