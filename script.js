@@ -40,3 +40,6 @@ logos.forEach((logo) => {
   const h1 = logo.querySelector("h1");
   logo.insertAdjacentHTML("afterbegin", logo_svg);
 });
+
+const slider = document.querySelector(`input#slider`);
+const projectWrapper = document.querySelector(`#project-wrapper`);

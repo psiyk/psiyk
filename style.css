@@ -98,6 +98,11 @@ html {
   --bg-secondary: rgb(230, 235, 230);
   --bg-tertiary: rgb(210, 220, 210);
 
+  --bg-dark-primary: hsl(150, 10%, 3%);
+  --bg-dark-primary-op: hsla(150, 10%, 3%, 0.93);
+  --bg-dark-secondary: hsl(144, 8%, 8%);
+  --bg-dark-tertiary: hsl(150, 10%, 15%);
+
   /* Supporting color (30%) */
   --support-blue: rgb(46, 68, 88);
   --support-blue-light: rgb(92, 122, 148);
@@ -183,6 +188,11 @@ html {
     --bg-secondary: hsl(144, 8%, 8%);
     --bg-tertiary: hsl(150, 10%, 15%);
 
+    --bg-dark-primary: rgb(248, 250, 248);
+    --bg-dark-primary-op: rgba(248, 250, 248, 0.93);
+    --bg-dark-secondary: rgb(230, 235, 230);
+    --bg-dark-tertiary: rgb(210, 220, 210);
+
     --txt-primary: #f5f5f5;
     --txt-secondary: #cccccc;
     --txt-light: #ffffff;
@@ -223,6 +233,7 @@ html {
   font-family: var(--font-2);
   color: inherit;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 a,
 button {
@@ -350,7 +361,8 @@ iconify-icon {
   /* font-size: var(--f-unit-4); */
   scale: 1.5;
 }
-h2 {
+h2:not(.title h2),
+.title {
   color: var(--accent-mint);
   margin-bottom: var(--sp4);
 }
@@ -451,42 +463,71 @@ section.skills .wrapper:hover:has(li:hover) li:not(li:hover) {
   filter: blur(2px);
 }
 section.projects .section-wrapper {
-  /* display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(min(100%, ((80rem - var(--vp-2) / 3) - var(--gap-2)), 20rem), 1fr)
-  );
-  gap: var(--gap-2); */
-  /* place-content: center; */
   display: flex;
-  flex-wrap: nowrap;
-  overflow: hidden;
+  flex-wrap: wrap;
+
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
   gap: var(--gap-2);
   overflow-x: auto;
+  position: relative;
+  scroll-snap-type: x mandatory;
+  /* justify-content: center; */
+  max-width: calc((22.5rem * 3) + (2 * var(--gap-2)));
 }
+section.projects {
+  @media screen and (max-width: 850px) {
+    .section-wrapper {
+      flex-wrap: nowrap;
+      border-radius: calc(var(--bd-radius-2) + var(--sp3));
+    }
+  }
+}
+
 section.projects figure.wrapper {
-  /* --section-width: calc(80rem - (2 * var(--vp-2))); */
-  width: min(25rem, 100%);
+  scroll-snap-align: start;
+  width: min(22.5rem, 100%);
   min-width: 22.5rem;
-  /* min-width: min(25rem, 100%); */
-  /* width: max(20rem, var(--section-width) / 3); */
   border: var(--bd) var(--bg-tertiary);
-  min-height: 28rem;
+  /* box-shadow: inset 0px var(--sp1) 0px var(--bg-dark-primary-op); */
   padding: var(--sp3);
   border-radius: calc(var(--bd-radius-2) + var(--sp3));
+  scroll-behavior: smooth;
+  overflow: hidden;
 }
+
 .projects figure > a {
   /* width: calc(100% - 2px); */
   height: calc(0.5 * 20rem);
-  overflow: hidden;
-  border: var(--bd) var(--bg-tertiary);
+  /* overflow: hidden; */
+  /* border: var(--bd) var(--bg-tertiary); */
   margin-bottom: var(--sp3);
   border-radius: var(--bd-radius-2) var(--bd-radius-2) var(--bd-radius-1-5)
     var(--bd-radius-1-5);
+  position: relative;
+}
+.projects figure > a.zama::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  /* aspect-rat io: 1 1; */
+  background-image: url(images/projects/zama.webp);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: black;
+  filter: blur(20px);
+  opacity: 50%;
 }
 figure img {
+  border-radius: var(--bd-radius-2) var(--bd-radius-2) var(--bd-radius-1-5)
+    var(--bd-radius-1-5);
   object-fit: cover;
   width: 100%;
+  height: 100%;
 }
 figure h4 {
   font-size: var(--sp6);
@@ -496,8 +537,9 @@ figure p {
   line-height: 1.6;
   color: var(--txt-secondary);
   padding-left: 0;
-  border-left: var(--sp1) solid transparent;
-  max-height: 4lh;
+  border-left: 2px solid transparent;
+  min-height: 3.5lh;
+  display: grid;
   font-weight: 500;
   transition: padding-left var(--tran), border var(--tran), color var(--tran);
 }
@@ -509,6 +551,69 @@ figure:hover p {
 figure:hover h4 {
   color: var(--txt-secondary);
 }
-.wrapper.zama {
-  /* background-color: hsla(39, 96%, 81%, 0.5); */
+figure.wrapper .btns {
+  margin-top: var(--sp4);
+  display: flex;
+  gap: var(--gap-1);
+}
+.accessBtn {
+  padding: var(--sp4);
+  border-radius: var(--bd-radius-2);
+  border: var(--bd) var(--bg-tertiary);
+}
+.viewBtn {
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
+  color: var(--brand);
+  background-color: var(--btn-white-bg);
+}
+.githubBtn {
+  background-color: var(--brand);
+  color: var(--txt-light);
+}
+div.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+div.title a {
+  border-radius: var(--bd-radius-4);
+  color: var(--txt-primary);
+  background-color: var(--bg-secondary);
+  display: flex;
+  align-items: center;
+  /* padding: var(--sp4); */
+  border: none;
+  /* display: none; */
+  padding: var(--sp4);
+}
+div.title a iconify-icon {
+  padding-left: var(--sp1);
+}
+div.title a span {
+  padding-right: var(--sp2);
+  border-right: var(--bd) var(--bg-tertiary);
+  font-weight: 500;
+  color: var(--txt-secondary);
+}
+div.title a * {
+  transition: translate var(--tran), color var(--tran), rotate var(--tran);
+}
+
+div.title a:hover span,
+div.title a:focus span {
+  border-color: var(--bg-secondary);
+  color: var(--brand);
+}
+
+div.title a:hover,
+div.title a:focus {
+  background-color: var(--bg-tertiary);
+}
+div.title a:hover iconify-icon,
+div.title a:focus iconify-icon {
+  color: var(--brand);
+  /* rotate: -45deg; */
+  translate: 0.25rem;
 }
