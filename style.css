@@ -70,6 +70,12 @@ html {
   --txt-light: #ffffff; /* Brand Colors */
   --brand: hsl(275, 64%, 59%);
   --brand-text: hsl(0, 0%, 100%);
+  --brand-text-secondary: hsl(275, 40%, 45%); /* Slightly desaturated, darker */
+  --brand-text-tertiary: hsl(
+    275,
+    30%,
+    35%
+  ); /* Even more subtle, good for muted 
 
   /* Accent Button */
   --btn-accent-bg: var(--brand);
@@ -169,6 +175,8 @@ html {
     --bg-a: 0.1;
 
     --brand: hsl(275, 64%, 67%);
+    --brand-text-secondary: hsl(275, 40%, 52%);
+    --brand-text-tetiary: hsl(275, 30%, 37%);
     --brand-text: hsl(0, 0%, 10%);
 
     --btn-accent-bg: var(--brand);
@@ -224,6 +232,11 @@ html {
     --highlight-muted: var(--accent-mint-muted);
   }
 }
+@media screen and (max-width: 600px) {
+  :root {
+    --bd: 1px solid;
+  }
+}
 * {
   font-family: var(--f-unit-1);
   margin: 0;
@@ -238,6 +251,18 @@ html {
 a,
 button {
   display: block;
+}
+input,
+textarea {
+  outline: none;
+  border: none;
+  display: block;
+  border: none;
+  background-color: transparent;
+}
+label {
+  display: block;
+  font-weight: bold;
 }
 header {
   /* border: 1px solid #000; */
@@ -474,6 +499,7 @@ section.projects .section-wrapper {
   scroll-snap-type: x mandatory;
   /* justify-content: center; */
   max-width: calc((22.5rem * 3) + (2 * var(--gap-2)));
+  margin-inline: auto;
 }
 section.projects {
   @media screen and (max-width: 850px) {
@@ -616,4 +642,100 @@ div.title a:focus iconify-icon {
   color: var(--brand);
   /* rotate: -45deg; */
   translate: 0.25rem;
+}
+section.contact {
+  border: 1px dashed var(--brand-text-secondary);
+  border-radius: var(--sp8);
+  padding: max(var(--vp-2), var(--sp4));
+  padding-top: max(var(--vp-2), var(--sp8));
+  display: flex;
+  margin-bottom: var(--sp4);
+  gap: max(var(--vp-2), var(--sp4));
+  @media screen and (max-width: 600px) {
+    flex-wrap: wrap;
+  }
+  /* max-width: calc(80rem + (var(--sp8) * 2)); */
+}
+section.contact h3 {
+  font-size: var(--f-unit-5);
+  color: var(--brand);
+  margin-bottom: var(--sp2);
+}
+.contact .title {
+  display: block;
+  max-width: min(35rem, 100%);
+  /* border: 1px solid #000; */
+  color: var(--txt-secondary);
+  margin-bottom: var(--sp8);
+  @media screen and (max-width: 600px) {
+    text-align: center;
+  }
+}
+.contact .title p {
+  max-width: min(25rem, 100%);
+  @media screen and (max-width: 600px) {
+    margin-inline: auto;
+  }
+}
+.contact .section-wrapper {
+  --sw: min((80rem - (3 * var(--vp-2)) - 35rem), 100%);
+  /* outline: var(--bd); */
+  width: var(--sw);
+  padding: 0;
+  margin-inline: auto;
+}
+.contact form {
+  display: grid;
+  gap: var(--sp5);
+}
+.contact fieldset {
+  border: none;
+}
+.input-wrapper,
+textarea {
+  display: flex;
+  align-items: center;
+  background-color: var(--bg-primary);
+  width: 100%;
+  border: var(--bd) var(--bg-tertiary);
+  padding: var(--sp2);
+  border-radius: var(--sp2);
+  gap: var(--gap-2);
+}
+.input-wrapper:focus-within,
+textarea:focus {
+  border: var(--bd) var(--brand) !important;
+  outline: var(--bd) var(--brand);
+}
+.contact input {
+  flex-grow: 1;
+}
+.contact fieldset label {
+  padding-bottom: var(--sp2);
+}
+.contact fieldset label span {
+  color: var(--txt-tertiary);
+  /* font-size: var(--f-unit-2); */
+  font-weight: 500;
+}
+
+.contact form iconify-icon {
+  color: var(--brand);
+}
+.contact form .input-wrapper iconify-icon {
+}
+textarea {
+  min-height: 10rem;
+  display: block;
+  resize: vertical;
+}
+.message-field label {
+  color: var(--brand);
+}
+.contact button {
+  border-radius: var(--sp4);
+  background-color: var(--btn-black-bg);
+  color: var(--txt-light);
+  border: var(--bd) var(--brand);
+  padding: var(--sp4);
 }

@@ -256,6 +256,67 @@
           </figure>
         </div>
       </section>
+      <section class="contact">
+        <div class="title">
+          <h3>Message Me</h3>
+          <p>
+            Fill out the form or drop a quick email—I’ll reply as soon as I can.
+          </p>
+        </div>
+        <div class="section-wrapper">
+          <form action="post" id="messageForm">
+            <fieldset>
+              <label for="name">Your Name</label>
+              <div class="input-wrapper">
+                <iconify-icon icon="hugeicons:ai-user"></iconify-icon
+                ><input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="e.g Success Ikechukwu"
+                  required
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <label for="email">Your Email Addresss</label>
+              <div class="input-wrapper">
+                <iconify-icon icon="hugeicons:ai-mail-01"></iconify-icon
+                ><input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="emailaddress@email.com"
+                  required
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <label for="organisation"
+                >Your Organisation. <span>Not Required</span></label
+              >
+              <div class="input-wrapper">
+                <iconify-icon icon="formkit:people"></iconify-icon
+                ><input
+                  type="text"
+                  id="organisation"
+                  name="organisation"
+                  placeholder=" e.g. Psyke "
+                />
+              </div>
+            </fieldset>
+            <fieldset class="message-field">
+              <label for="message">Your Message </label>
+              <textarea
+                name="message"
+                id="message"
+                placeholder="Your Text Goes  Here"
+              ></textarea>
+            </fieldset>
+            <button type="submit" form="messageForm">Submit</button>
+          </form>
+        </div>
+      </section>
     </main>
     <footer></footer>
   </body>
