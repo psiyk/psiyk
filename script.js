@@ -20,7 +20,7 @@ const logo_svg = ` <svg
             <defs>
               <style type="text/css">
                 <![CDATA[
-                 .str0 {stroke: #49ff92;stroke-width:301.11;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.61313}
+                 .str0 {stroke: var(--color-brand);stroke-width:301.11;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.61313}
                  .fil0 {fill:none}
                 ]]>
               </style>
