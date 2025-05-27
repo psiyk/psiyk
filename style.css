@@ -98,6 +98,9 @@ html {
   --txt-light-secondary: #f5f5f5;
   --txt-light-tertiary: #e0e0e0;
 
+  --bg-support-blue: hsl(120, 20%, 98%);
+  --bg-support-blue-dark: hsl(220, 40%, 96%);
+
   /* Backgrounds (60%) */
   --bg-primary: rgb(248, 250, 248);
   --bg-primary-op: rgba(248, 250, 248, 0.93);
@@ -200,6 +203,9 @@ html {
     --bg-dark-primary-op: rgba(248, 250, 248, 0.93);
     --bg-dark-secondary: rgb(230, 235, 230);
     --bg-dark-tertiary: rgb(210, 220, 210);
+
+    --bg-support-blue: hsl(120, 7%, 3%);
+    --bg-support-blue-dark: hsl(225, 50%, 3%);
 
     --txt-primary: #f5f5f5;
     --txt-secondary: #cccccc;
@@ -647,9 +653,9 @@ div.title a:focus iconify-icon {
 }
 section.contact {
   position: relative;
-  border: 1px dashed var(--accent-mint);
+  /* border: 1px dashed var(--accent-mint); */
   border-radius: var(--sp8);
-  background-color: var(--bg-primary);
+  background-color: var(--a);
   z-index: 200 !important;
   padding: max(var(--vp-2), var(--sp4));
   padding-top: max(var(--vp-2), var(--sp8));
@@ -660,6 +666,7 @@ section.contact {
     flex-wrap: wrap;
   }
   margin-bottom: 0;
+  background-color: var(--bg-support-blue-dark);
 
   /* border-bottom-color: var(--accent-mint);
   max-width: calc(80rem + (var(--sp8) * 2)); */
@@ -703,9 +710,9 @@ section.contact h3 {
 textarea {
   display: flex;
   align-items: center;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-support-blue-dark);
   width: 100%;
-  border: var(--bd) var(--bg-tertiary);
+  border: var(--bd) var(--support-blue-light);
   padding: var(--sp2);
   border-radius: var(--sp2);
   gap: var(--gap-2);
@@ -759,12 +766,10 @@ textarea {
   margin-top: calc(0rem - var(--sp8));
   padding-top: calc(var(--sp8) + max(var(--vp-2), var(--sp4)));
   /* background-color: var(--accent-mint); */
-  border: 1px dashed var(--accent-mint);
+  /* border: 1px dashed var(--accent-mint); */
   border-bottom: none;
   /* background-image: var(--gradient-mint-dark); */
-  background-size: 100% 50%;
-  background-position: bottom;
-  background-repeat: no-repeat;
+  background-color: var(--bg-support-blue-dark);
 }
 section.socials h2 {
   color: var(--btn-white-text);
@@ -813,7 +818,7 @@ section.socials a {
   --width: max(100vw - 80rem, var(--vp-2), var(--sp4));
   content: "";
   position: absolute;
-  border-right: 1px dashed var(--accent-mint);
+  /* border-right: 1px dashed var(--accent-mint); */
   bottom: calc(var(--sp8) * -1);
   left: calc(0rem - 1.5px - var(--width));
   width: var(--width);
@@ -823,8 +828,8 @@ section.socials a {
   border-radius: 0 0 var(--sp8) var(--sp8);
   /* background-image: linear-gradient(var(--bg-primary), var(--support-blue)); */
   z-index: 100;
-  border-left: 1px dashed var(--accent-mint);
-  border-bottom: 1px dashed var(--accent-mint);
+  /* border-left: 1px dashed var(--accent-mint);
+  border-bottom: 1px dashed var(--accent-mint); */
 
   @media screen and (max-width: 80rem) {
     display: none;
@@ -841,13 +846,12 @@ section.socials a {
 }
 
 footer {
-  /* background-color: var(--accent-mint); */
   padding: 4rem;
+  position: relative;
   z-index: 90;
-
-  @media screen and (max-width: 80rem) {
-    border-inline: 1px dashed var(--accent-mint);
-  }
+  background-color: var(--bg-support-blue-dark);
+  overflow: hidden;
+  min-height: 40rem;
 }
 footer .logo {
   color: var(--brand);
@@ -857,4 +861,30 @@ footer .logo {
 }
 footer h2 {
   color: var(--brand) !important;
+}
+.tile {
+  position: absolute;
+  font-size: 10vw;
+  /* line-height: 0; */
+  letter-spacing: 0;
+  /* -webkit-text-stroke: 1px var(--accent-mint); */
+  color: var(--brand-text-tetiary);
+  opacity: 10%;
+  /* translate: 0 -100%; */
+  border: 1px solid var(--txt-secondary);
+  background-color: green;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+.tile i {
+  font-style: normal;
+  display: block;
+  font-size: 25vw;
+  position: absolute;
+  top: 25rem;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
