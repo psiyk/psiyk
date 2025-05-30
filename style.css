@@ -321,6 +321,7 @@ div.logo {
 .header-wrapper nav a {
   font-weight: 500;
   /* letter-spacing: -60%; */
+  transition: var(--tran);
 }
 .header-wrapper a.cta {
   padding: var(--sp4);
@@ -811,7 +812,8 @@ section.socials a {
 }
 section.socials:has(a:hover) a:not(a:hover),
 section.socials:has(a:focus) a:not(a:focus) {
-  filter: blur(2px);
+  filter: blur(5px);
+  background-color: transparent;
 }
 section.socials a.x-twitter {
   --x-hs: var(--x-twitter-hs);
@@ -874,18 +876,61 @@ footer {
   z-index: 90;
   background-color: var(--bg-support-blue-dark);
   overflow: hidden;
-  min-height: 40rem;
+  padding-bottom: 0;
+  /* min-height: 40rem; */
 }
 footer .logo {
   color: var(--brand);
   display: flex;
   gap: var(--sp2);
   flex-direction: column;
+  margin-bottom: var(--sp8);
 }
 footer svg {
   max-height: 0;
 }
-footer h2 {
+footer .content .logo h2 {
+  line-height: 1.2;
   color: var(--brand) !important;
-  margin-bottom: 0 !important;
+  margin-bottom: var(--sp2) !important;
+  font-size: var(--f-unit-5) !important;
+}
+footer h2 + h3 {
+  font-weight: 500;
+}
+footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: end;
+}
+footer nav ul {
+  display: grid;
+  /* gap: var(--gap-2); */
+  width: min(15rem, 100%);
+}
+footer h4 {
+  padding: var(--sp4);
+}
+footer nav a {
+  padding: var(--sp4);
+  max-width: 10rem;
+  transition: var(--tran);
+}
+.copy {
+  text-align: center;
+  padding: var(--sp2);
+}
+footer nav ul:has(a:hover) a:not(a:hover),
+footer nav ul:has(a:focus) a:not(a:focus) {
+  filter: blur(2px);
+  color: var(--brand);
+  translate: var(--sp2);
+}
+header nav:has(a:hover) a:not(a:hover):not(a.cta) {
+  filter: blur(2px);
+  color: var(--txt-muted);
+}
+header nav a:hover {
+  filter: brightness(1.2);
 }
