@@ -37,7 +37,7 @@ const logo_svg = ` <svg
 const logos = document.querySelectorAll(`.logo`);
 
 logos.forEach((logo) => {
-  const h1 = logo.querySelector("h1");
+  // const h1 = logo.querySelector("h1");
   logo.insertAdjacentHTML("afterbegin", logo_svg);
 });
 
