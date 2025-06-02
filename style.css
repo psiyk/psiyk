@@ -344,20 +344,31 @@ section .hero-text {
   padding-top: calc(var(--sp9) * 2);
   display: flex;
   gap: var(--gap-2);
-  flex-direction: column;
-  /* border: 1px solid #000; */
-  justify-content: end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* border: 1px solid; */
+  justify-content: space-between;
+  align-items: center;
 }
 .hero-text h1 {
-  font-size: max(3.5rem, var(--f-v-2)) !important;
-  line-height: 1;
+  font-size: var(--f-v-3) !important;
+  line-height: 1.2 * 4rem;
+  font-weight: normal;
+  letter-spacing: -0.5pt;
+  width: min(35rem - var(--gap-2), 100%);
+  /* border: 1px solid; */
+}
+.hero-secondary {
+  /* border: 1px solid; */
+  width: min(35rem - var(--gap-2), 100%);
 }
 .hero-text p {
-  max-width: 40rem;
+  /* max-width: 40rem; */
   text-wrap: pretty;
   font-size: var(--f-unit-3);
-  line-height: 1.6;
+  line-height: 2lh;
   font-weight: 500;
+  margin-bottom: var(--sp6);
 }
 
 .cta-btns {
