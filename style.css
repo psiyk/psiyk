@@ -938,9 +938,10 @@ footer nav a {
 }
 footer nav ul:has(a:hover) a:not(a:hover),
 footer nav ul:has(a:focus) a:not(a:focus) {
-  filter: blur(2px);
-  color: var(--brand);
-  translate: var(--sp2);
+  filter: blur(0.5pt);
+  opacity: 0.8;
+  /* color: var(--brand); */
+  /* translate: var(--sp2); */
 }
 header nav:has(a:hover) a:not(a:hover):not(a.cta) {
   filter: blur(2px);
@@ -1006,6 +1007,7 @@ nav#nav2 {
       /* border: 1px solid #000; */
       border-radius: var(--sp2);
       transition: var(--tran);
+      letter-spacing: -0.5pt;
     }
     a:hover,
     a:focus {
@@ -1014,8 +1016,9 @@ nav#nav2 {
     }
     &:has(a:hover) a:not(a:hover),
     &:has(a:focus) a:not(a:focus) {
-      color: var(--brand);
-      filter: blur(2px);
+      /* color: var(--txt-tertiary); */
+      opacity: 0.2;
+      filter: blur(1px);
     }
   }
   nav#nav2.active {
@@ -1035,6 +1038,7 @@ body::after {
   /* filter: blur(10px); */
 }
 body.naved {
+  overflow: hidden;
 }
 body.naved::after {
   opacity: 1;
