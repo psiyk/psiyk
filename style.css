@@ -41,9 +41,9 @@ html {
 
   --f-v-0: max(1.25rem, 1.5vw);
   --f-v-1: max(1.5rem, 2vw);
-  --f-v-2: max(2rem, 4vw);
+  --f-v-2: max(3rem, 4vw);
   --f-v-2-5: max(3rem, 4vw);
-  --f-v-3: max(4rem, 6vw);
+  --f-v-3: max(4rem, 5vw);
   --f-v-4: max(4rem, 8vw);
 
   --bd: 1.5px solid;
@@ -278,7 +278,7 @@ label {
 }
 header {
   /* border: 1px solid #000; */
-  z-index: 1000;
+  z-index: 200;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   position: sticky;
@@ -348,10 +348,10 @@ section .hero-text {
   flex-wrap: wrap;
   /* border: 1px solid; */
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 }
 .hero-text h1 {
-  font-size: var(--f-v-3) !important;
+  font-size: var(--f-v-2) !important;
   line-height: 1.2 * 4rem;
   font-weight: normal;
   letter-spacing: -0.5pt;
@@ -361,9 +361,13 @@ section .hero-text {
 .hero-secondary {
   /* border: 1px solid; */
   width: min(35rem - var(--gap-2), 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: calc(0.2 * 4rem);
 }
 .hero-text p {
-  /* max-width: 40rem; */
+  color: var(--txt-secondary);
   text-wrap: pretty;
   font-size: var(--f-unit-3);
   line-height: 2lh;
@@ -587,7 +591,7 @@ figure h4 {
   margin-bottom: var(--sp2);
 }
 figure p {
-  line-height: 1.6;
+  line-height: 1.6lh;
   color: var(--txt-secondary);
   padding-left: 0;
   border-left: 2px solid transparent;
@@ -675,7 +679,7 @@ section.contact {
   /* border: 1px dashed var(--accent-mint); */
   border-radius: var(--sp8);
   background-color: var(--a);
-  z-index: 200 !important;
+  z-index: 90 !important;
   padding: max(var(--vp-2), var(--sp4));
   padding-top: max(var(--vp-2), var(--sp8));
   display: flex;
@@ -884,7 +888,7 @@ section.socials a.telegram {
 footer {
   padding: 4rem;
   position: relative;
-  z-index: 90;
+  /* z-index: 90; */
   background-color: var(--bg-support-blue-dark);
   overflow: hidden;
   padding-bottom: 0;
@@ -944,4 +948,96 @@ header nav:has(a:hover) a:not(a:hover):not(a.cta) {
 }
 header nav a:hover {
   filter: brightness(1.2);
+}
+button#nav-btn {
+  z-index: 500 !important;
+
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  width: 2rem;
+  display: none;
+  /* height: 2rem; */
+  position: relative;
+  padding: var(--sp1);
+  border-block: var(--bd) var(--txt-primary);
+  margin-block: var(--sp4);
+  /* opacity: 0; */
+  /* translate: 0 100%; */
+  transition: padding var(--tran), margin var(--tran);
+}
+nav#nav2 {
+  display: none;
+  padding: calc(3 * var(--sp9)) var(--vp-2) calc(1.5 * var(--sp9));
+  z-index: 350 !important;
+  border-radius: var(--sp9) var(--sp9) 0 0;
+}
+@media screen and (max-width: 800px) {
+  button#nav-btn {
+    display: block;
+    z-index: 400;
+  }
+  button#nav-btn.active {
+    padding: 0;
+    margin-block: calc(var(--sp4) + var(--sp1));
+  }
+  header nav {
+    display: none !important;
+  }
+  nav#nav2 {
+    z-index: 250;
+    display: block;
+    position: fixed;
+    background-color: var(--bg-support-blue-dark);
+    /* top: 40%; */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-2);
+    opacity: 1;
+    translate: 0 100%;
+    transition: translate var(--tran);
+    a {
+      padding: var(--sp2);
+      font-size: calc(var(--f-unit-4) * 1.5);
+
+      /* border: 1px solid #000; */
+      border-radius: var(--sp2);
+      transition: var(--tran);
+    }
+    a:hover,
+    a:focus {
+      background-color: var(--bg-tertiary);
+      color: var(--accent-mint);
+    }
+    &:has(a:hover) a:not(a:hover),
+    &:has(a:focus) a:not(a:focus) {
+      color: var(--brand);
+      filter: blur(2px);
+    }
+  }
+  nav#nav2.active {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0 0 0 0;
+  background-color: var(--bg-primary-op);
+  z-index: 100;
+  visibility: hidden;
+  transition: var(--tran);
+  opacity: 0;
+  /* filter: blur(10px); */
+}
+body.naved {
+}
+body.naved::after {
+  opacity: 1;
+  transition: var(--tran);
+  visibility: visible;
 }

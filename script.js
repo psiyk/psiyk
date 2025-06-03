@@ -43,3 +43,23 @@ logos.forEach((logo) => {
 
 const slider = document.querySelector(`input#slider`);
 const projectWrapper = document.querySelector(`#project-wrapper`);
+
+const navBtn = document.querySelector("#nav-btn");
+const nav = document.querySelector("nav#nav2");
+const body = document.body;
+console.log(body);
+navBtn.addEventListener("click", function () {
+  navBtn.classList.toggle("active");
+  nav.classList.toggle("active");
+  body.classList.toggle("naved");
+});
+document.addEventListener("click", function (event) {
+  const isTargetNav = nav.contains(event.target);
+  const isTargetBtn = event.target === navBtn;
+
+  if (!isTargetBtn && !isTargetNav) {
+    navBtn.classList.remove("active");
+    nav.classList.remove("active");
+    body.classList.remove("naved");
+  }
+});
