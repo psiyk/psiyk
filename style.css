@@ -290,13 +290,15 @@ body {
   background-color: var(--bg-primary);
   color: var(--txt-primary);
   overflow-x: hidden;
+
+  position: relative;
 }
 .header-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 80rem;
-  margin-inline: auto;
+  margin: 0 auto;
 }
 .header-wrapper nav {
   display: flex;
@@ -335,9 +337,8 @@ div.logo {
 }
 section {
   padding: var(--sp4) var(--vp-2);
-  margin-bottom: var(--sp8);
   max-width: 80rem;
-  margin-inline: auto;
+  margin: 0 auto var(--sp8);
 }
 section .hero-text {
   min-height: 30dvh;
@@ -530,7 +531,7 @@ section.projects .section-wrapper {
   scroll-snap-type: x mandatory;
   /* justify-content: center; */
   max-width: calc((22.5rem * 3) + (2 * var(--gap-2)));
-  margin-inline: auto;
+  margin: auto auto auto;
 }
 section.projects {
   @media screen and (max-width: 850px) {
@@ -705,6 +706,7 @@ section.contact h3 {
   /* border: 1px solid #000; */
   color: var(--txt-secondary);
   margin-bottom: var(--sp8);
+  margin-inline: auto;
   @media screen and (max-width: 600px) {
     text-align: center;
   }
@@ -712,15 +714,15 @@ section.contact h3 {
 .contact .title p {
   max-width: min(25rem, 100%);
   @media screen and (max-width: 600px) {
-    margin-inline: auto;
+    margin: auto auto auto;
   }
 }
 .contact .section-wrapper {
-  --sw: min((80rem - (3 * var(--vp-2)) - 35rem), 100%);
+  --sw: min((80rem - (3 * var(--vp-2)) - 35rem), 80%);
   /* outline: var(--bd); */
   width: var(--sw);
   padding: 0;
-  margin-inline: auto;
+  margin: auto auto auto;
 }
 .contact form {
   display: grid;
@@ -808,7 +810,7 @@ section.socials .section-wrapper {
   align-items: center;
   max-width: 40rem;
 
-  margin-inline: auto;
+  margin: 0 auto;
 }
 section.socials a {
   --bg-c: hsla(var(--x-hs), var(--bg-l), var(--bg-a));
@@ -923,6 +925,9 @@ footer nav ul {
   display: grid;
   /* gap: var(--gap-2); */
   width: min(15rem, 100%);
+  @media screen and(max-width:500px) {
+    margin-inline: auto;
+  }
 }
 footer h4 {
   padding: var(--sp4);
@@ -931,6 +936,7 @@ footer nav a {
   padding: var(--sp4);
   max-width: 10rem;
   transition: var(--tran);
+  border: 1px solid;
 }
 .copy {
   text-align: center;
@@ -938,13 +944,15 @@ footer nav a {
 }
 footer nav ul:has(a:hover) a:not(a:hover),
 footer nav ul:has(a:focus) a:not(a:focus) {
-  filter: blur(0.5pt);
-  opacity: 0.8;
-  /* color: var(--brand); */
+  --op: 0.5pt;
+  filter: blur(var(--op));
+  /* opacity: 0.8; */
+  color: var(--txt-tertiary);
   /* translate: var(--sp2); */
 }
 header nav:has(a:hover) a:not(a:hover):not(a.cta) {
-  filter: blur(2px);
+  --op: 2px;
+  filter: blur(var(--op));
   color: var(--txt-muted);
 }
 header nav a:hover {
@@ -970,7 +978,7 @@ button#nav-btn {
 nav#nav2 {
   display: none;
   padding: calc(3 * var(--sp9)) var(--vp-2) calc(1.5 * var(--sp9));
-  z-index: 350 !important;
+  z-index: 450 !important;
   border-radius: var(--sp9) var(--sp9) 0 0;
 }
 @media screen and (max-width: 800px) {
@@ -986,19 +994,19 @@ nav#nav2 {
     display: none !important;
   }
   nav#nav2 {
-    z-index: 250;
+    /* z-index: 250; */
     display: block;
     position: fixed;
     background-color: var(--bg-support-blue-dark);
     /* top: 40%; */
-    bottom: 0;
-    left: 0;
-    right: 0;
+    height: 60vh;
+    inset: 40vh 0 0 0;
     display: flex;
     flex-direction: column;
     gap: var(--gap-2);
-    opacity: 1;
-    translate: 0 100%;
+    opacity: 0;
+
+    translate: 0 100vw;
     transition: translate var(--tran);
     a {
       padding: var(--sp2);
@@ -1028,7 +1036,7 @@ nav#nav2 {
 }
 body::after {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0 0 0 0;
   background-color: var(--bg-primary-op);
   z-index: 100;
