@@ -1,21 +1,7 @@
+"use strict";
+
+gsap.registerPlugin(ScrollTrigger);
 document.addEventListener("DOMContentLoaded", (event) => {
-  // gsap.from(".hero h1", {
-  //   duration: 1,
-  //   y: "20",
-  //   opacity: 0,
-  //   ease: "hop",
-  // });
-
-  // gsap.from(".cta-btns a", {
-  //   duration: 0.5,
-  //   opacity: 0,
-
-  //   //   ease: "hop",
-  //   ease: "expoScale(0.5,7,none)",
-  //   stagger: 0.5,
-  // });
-
-  //   gsap.from(body, { duration: 1, opacity: 0, scale: 0.8 });
   gsap.from(".page-wrapper", {
     duration: 1,
     opacity: 0,
@@ -23,8 +9,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const heroTimeline = gsap.timeline({
     defaults: { duration: 0.5, opacity: 0 },
   });
+  gsap.from("section.hero", {
+    y: 70,
+    duration: 0.5,
+    ease: "expoScale(0.5,7,none)",
+    delay: 2,
+    clearProps: "all",
+  });
   heroTimeline
-    .from(".hero h1", { y: "20px", ease: "hop" })
+    .from(".hero h1", { y: "20px", ease: "expoScale(0.5,7,none)" })
     .from(".hero-secondary p", {
       x: -20,
       filter: "blur(2px)",
@@ -35,7 +28,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       y: -20,
       duration: 1,
       stagger: 0.01,
-      ease: "hop",
+      ease: "expoScale(0.5,7,none)",
       filter: "blur(2px)",
       opacity: 0,
       clearProps: "all",
@@ -49,4 +42,33 @@ document.addEventListener("DOMContentLoaded", (event) => {
       },
       "-=0.5"
     );
+  document.querySelectorAll("section.nen").forEach((section) => {
+    const title = section.querySelector(".title");
+    const secWrapper = section.querySelectorAll(".section-wrapper .wrapper ");
+    const li = section.querySelectorAll("li");
+    const seca = section.querySelectorAll("a");
+    const soca = document.querySelectorAll(".social-wrapper a");
+
+    let elem = section;
+    const sectionTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: elem,
+        start: `top 80%`,
+        end: `bottom 80%`,
+        markers: false,
+        toggleActions: "play none none reverse",
+      },
+      defaults: {
+        opacity: 0,
+        duration: 0.5,
+        ease: "power2.out",
+        clearProps: "all",
+      },
+    });
+    sectionTl.from(title, { y: 40 });
+    sectionTl.from([...secWrapper, ...li, ...seca, ...soca], {
+      y: 40,
+      stagger: 0.1,
+    });
+  });
 });

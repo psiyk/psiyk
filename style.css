@@ -276,6 +276,11 @@ label {
   display: block;
   font-weight: bold;
 }
+h2 {
+  font-size: var(--f-unit-5);
+  font-weight: 500;
+  letter-spacing: -0.5pt;
+}
 header {
   /* border: 1px solid #000; */
   z-index: 200;
@@ -338,7 +343,7 @@ div.logo {
 section {
   padding: var(--sp4) var(--vp-2);
   max-width: 80rem;
-  margin: 0 auto var(--sp8);
+  margin: 0 auto calc(var(--sp9) * 2);
 }
 section .hero-text {
   min-height: 30dvh;
@@ -349,7 +354,7 @@ section .hero-text {
   flex-wrap: wrap;
   /* border: 1px solid; */
   justify-content: space-between;
-  align-items: start;
+  align-items: end;
 }
 .hero-text h1 {
   font-size: var(--f-v-2) !important;
@@ -454,6 +459,9 @@ h2:not(.title h2),
   border: var(--bd) var(--bg-secondary);
   padding: var(--sp4);
   border-radius: calc(var(--bd-radius-2) + var(--sp4));
+  background-color: var(--bg-primary-op);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   /* flex-grow: 1; */
   @media screen and (max-width: 500px) {
     flex-grow: 1;
@@ -546,12 +554,13 @@ section.projects figure.wrapper {
   scroll-snap-align: start;
   width: min(22.5rem, 100%);
   min-width: 22.5rem;
-  border: var(--bd) var(--bg-tertiary);
+  /* border: var(--bd) var(--bg-tertiary); */
   /* box-shadow: inset 0px var(--sp1) 0px var(--bg-dark-primary-op); */
   padding: var(--sp3);
   border-radius: calc(var(--bd-radius-2) + var(--sp3));
   scroll-behavior: smooth;
   overflow: hidden;
+  background-color: var(--bg-primary);
 }
 
 .projects figure > a {
@@ -919,7 +928,9 @@ footer nav {
   display: flex;
   flex-wrap: wrap;
   justify-content: start;
-  align-items: end;
+  align-items: start;
+  gap: var(--gap-4);
+  margin-bottom: var(--sp9);
 }
 footer nav ul {
   display: grid;
@@ -931,15 +942,18 @@ footer nav ul {
 }
 footer h4 {
   padding: var(--sp4);
+  color: var(--accent-mint-txt-tertiary);
 }
 footer nav a {
   padding: var(--sp4);
   max-width: 10rem;
   transition: var(--tran);
-  border: 1px solid;
+  /* border: 1px solid; */
 }
 .copy {
-  text-align: center;
+  text-align: left;
+  font-weight: bold;
+  color: var(--brand);
   padding: var(--sp2);
 }
 footer nav ul:has(a:hover) a:not(a:hover),
@@ -1052,4 +1066,16 @@ body.naved::after {
   opacity: 1;
   transition: var(--tran);
   visibility: visible;
+}
+.page-wrapper {
+  background-color: var(--bg-primary);
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+  /* background-blend-mode: multiply; */
+
+  background-position: center bottom;
+  background-attachment: local;
+  @media screen and (min-width: 800px) {
+    /* background-image: url(logo/logo2.svg); */
+  }
 }
