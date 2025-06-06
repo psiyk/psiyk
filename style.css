@@ -1102,3 +1102,42 @@ body.naved::after {
     /* background-image: url(logo/logo2.svg); */
   }
 }
+.about-page .sec1 .imgWrapper,
+.about-page .sec1 p.txt {
+  width: min(100%, 30rem);
+  height: 30rem;
+  flex-grow: 1;
+  border-radius: var(--sp8);
+}
+.imgWrapper {
+  overflow: hidden;
+}
+.imgWrapper img {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sec1 .section-wrapper {
+  display: flex;
+  gap: var(--gap-4);
+  align-items: stretch;
+  flex-wrap: wrap;
+  @media screen and (min-width: 800px) {
+  }
+}
+p.txt {
+  padding: var(--sp8);
+  background-color: var(--bg-support-blue-dark);
+  /* border: var(--bd) var(--support-blue); */
+  display: flex;
+  align-items: center;
+}
+p.txt span {
+  display: block;
+  margin-bottom: var(--sp8);
+  font-size: var(--f-unit-4);
+  text-wrap: pretty;
+  line-height: 2lh;
+  color: var(--txt-secondary);
+}
