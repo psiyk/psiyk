@@ -2,6 +2,13 @@
 
 gsap.registerPlugin(ScrollTrigger);
 document.addEventListener("DOMContentLoaded", (event) => {
+  const txtPrimary = getComputedStyle(document.documentElement)
+    .getPropertyValue("--txt-primary")
+    .trim();
+  console.log(txtPrimary);
+  const txtPrimaryOp = getComputedStyle(document.documentElement)
+    .getPropertyValue("--txt-primary-op")
+    .trim();
   gsap.from(".page-wrapper", {
     duration: 1,
     opacity: 0,
@@ -17,7 +24,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
     clearProps: "all",
   });
   heroTimeline
-    .from(".hero h1", { y: "20px", ease: "expoScale(0.5,7,none)" })
+    .fromTo(
+      ".hero h1",
+      {
+        y: "20px",
+        // color: txtPrimary,
+        // clearProps: "all",
+      },
+      {
+        ease: "expoScale(0.5,7,none)",
+        color: txtPrimaryOp,
+        clearProps: "all",
+      }
+    )
     .from(".hero-secondary p", {
       x: -20,
       filter: "blur(2px)",

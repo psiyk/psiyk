@@ -64,6 +64,7 @@ html {
 
   /* Text colors */
   --txt-primary: #1a1a1a;
+  --txt-primary-op: #1a1a1a44;
   --txt-primary-dark: #1a1a1a;
   --txt-secondary: #555555;
   --txt-light-dark: #ffffff;
@@ -213,6 +214,7 @@ html {
     --bg-support-blue-dark: hsl(225, 50%, 3%);
 
     --txt-primary: #f5f5f5;
+    --txt-primary-op: #f5f5f544;
     --txt-secondary: #cccccc;
     --txt-light: #ffffff;
     --txt-muted: #999999;
@@ -362,7 +364,28 @@ section .hero-text {
   font-weight: normal;
   letter-spacing: -0.5pt;
   width: min(35rem - var(--gap-2), 100%);
+  background-image: linear-gradient(
+    to right,
+
+    var(--accent-mint),
+    var(--support-blue),
+    var(--brand),
+    var(--support-blue),
+    var(--accent-mint)
+  );
+  color: var(--txt-primary-op);
+  background-clip: text;
+  background-size: 200%;
+  background-position: 0 0;
+  background-attachment: fixed;
   /* border: 1px solid; */
+  animation: bg-scroll 25s ease-in-out infinite forwards;
+}
+@keyframes bg-scroll {
+  to {
+    background-position: 200% 100%;
+    /* color: var(--txt-primary); */
+  }
 }
 .hero-secondary {
   /* border: 1px solid; */
