@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
       },
       "-=0.5"
     );
-  document.querySelectorAll("section.nen").forEach((section) => {
+  document.querySelectorAll(".nen").forEach((section) => {
     const title = section.querySelector(".title");
     const secWrapper = section.querySelectorAll(".section-wrapper .wrapper ");
     const li = section.querySelectorAll("li");
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         trigger: elem,
         start: `top 60%`,
         end: `bottom 50%`,
-        markers: true,
+        markers: false,
         toggleActions: "play none none reverse",
       },
       defaults: {
@@ -90,5 +90,18 @@ document.addEventListener("DOMContentLoaded", (event) => {
       y: 40,
       stagger: 0.1,
     });
+  });
+  gsap.from("div.about-contact.wrapper", {
+    backgroundSize: "200% 400%",
+    backgroundPosition: "bottom center",
+    scrollTrigger: {
+      trigger: ".about-contact.wrapper",
+      start: "top 60%",
+      end: "bottom 50%",
+      toggleActions: "play none none reverse",
+      scrub: true,
+      markers: true, // uncomment for debugging
+    },
+    ease: "power1.inOut",
   });
 });

@@ -292,6 +292,7 @@ header {
   top: 0;
   background-color: var(--bg-primary-op);
   padding: var(--sp4) var(--vp-2);
+  transition: inherit;
 }
 body {
   background-color: var(--bg-primary);
@@ -841,10 +842,10 @@ section.socials .section-wrapper {
   justify-content: center;
   align-items: center;
   max-width: 40rem;
-
   margin: 0 auto;
 }
-section.socials a {
+section.socials a,
+.socials-content.wrapper a {
   --bg-c: hsla(var(--x-hs), var(--bg-l), var(--bg-a));
   --tx-c: hsl(var(--x-hs), var(--text-l));
   --bd-c: hsl(var(--x-hs), var(--border-l));
@@ -864,22 +865,28 @@ section.socials:has(a:focus) a:not(a:focus) {
   filter: blur(5px);
   background-color: transparent;
 }
-section.socials a.x-twitter {
+.social-wrapper a.x-twitter,
+.page-wrapper:has(.social-wrapper :is(a.x-twitter:hover, a.x-twitter:focus)) {
   --x-hs: var(--x-twitter-hs);
 }
-section.socials a.linkedin {
+.social-wrapper a.linkedin,
+.page-wrapper:has(.social-wrapper :is(a.linkedin:hover, a.linkedin:focus)) {
   --x-hs: var(--linkedin-hs);
 }
-section.socials a.instagram {
+.social-wrapper a.instagram,
+.page-wrapper:has(.social-wrapper :is(a.instagram:hover, a.instagram:focus)) {
   --x-hs: var(--instagram-hs);
 }
-section.socials a.github {
+.social-wrapper a.github,
+.page-wrapper:has(.social-wrapper :is(a.github:hover, a.github:focus)) {
   --x-hs: var(--github-hs);
 }
-section.socials a.whatsapp {
+.social-wrapper a.whatsapp,
+.page-wrapper:has(.social-wrapper :is(a.whatsapp:hover, a.whatsapp:focus)) {
   --x-hs: var(--whatsapp-hs);
 }
-section.socials a.telegram {
+.social-wrapper a.telegram,
+.page-wrapper:has(.social-wrapper :is(a.telegram:hover, a.telegram:focus)) {
   --x-hs: var(--telegram-hs);
 }
 
@@ -921,12 +928,28 @@ section.socials a.telegram {
 
 footer {
   padding: 4rem;
-  position: relative;
-  /* z-index: 90; */
+  position: relative !important;
+
   background-color: var(--bg-support-blue-dark);
   overflow: hidden;
   padding-bottom: 0;
-  /* min-height: 40rem; */
+  background-image: url(images/bgImages/googles2.svg);
+  background-size: 100% 200%;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 0;
+  /* background-color: red; */
+  background-image: linear-gradient(
+    135deg,
+    var(--bg-support-blue-dark) 50vw,
+    transparent
+  );
+  z-index: 1;
+  posinter-events: none;
 }
 footer .logo {
   color: var(--brand);
@@ -934,6 +957,10 @@ footer .logo {
   gap: var(--sp2);
   flex-direction: column;
   margin-bottom: var(--sp8);
+}
+footer .footer-wrapper {
+  position: relative;
+  z-index: 2 !important;
 }
 footer svg {
   max-height: 0;
@@ -1095,7 +1122,7 @@ body.naved::after {
   /* background-repeat: no-repeat; */
   background-size: cover;
   /* background-blend-mode: multiply; */
-
+  transition: background-color var(--tran);
   background-position: center bottom;
   background-attachment: local;
   @media screen and (min-width: 800px) {
@@ -1164,7 +1191,96 @@ p.wrapper.sec2 {
   gap: var(--gap-4);
 }
 p.wrapper.sec2 span {
-  max-width: 60ch !important;
+  max-width: 75ch !important;
   display: block;
   margin-inline: auto;
+}
+.contact-section .section-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-4);
+}
+
+.wrapper.about-contact,
+.wrapper.socials-content {
+  width: min(100%, (80rem - (2 * var(--vp-2)) - var(--gap-4)) / 2);
+  padding: var(--sp8);
+}
+.wrapper.about-contact {
+  /* width: min(30rem, 100%); */
+  border-radius: var(--sp8);
+  min-height: 30rem;
+  background-color: var(--brand);
+  display: grid;
+  align-content: end;
+  flex-grow: 1;
+  background-image: url(images/bgImages/googles.svg);
+  background-repeat: no-repeat;
+  background-attachment: local;
+  /* background-size: 200% 400%; */
+  background-size: 100% 200%;
+  background-position: bottom center;
+}
+/* .wrapper.about-contact.anim {
+  animation: transit 5s ease-in-out forwards;
+}
+@keyframes transit {
+  to {
+    background-size: 100% 200%;
+    background-position: top center;
+  }
+} */
+.wrapper.about-contact h3 {
+  font-size: var(--f-v-2);
+  line-height: calc(1.2 * var(--f-v-2));
+  font-weight: 500;
+  letter-spacing: calc(-0.05 * var(--f-v-2));
+  color: var(--accent-mint);
+  margin-bottom: var(--sp4);
+  filter: drop-shadow(
+    calc(0.1 * var(--f-v-2)) calc(0.1 * var(--f-v-2)) 0px var(--btn-black-bg)
+  );
+}
+.wrapper.about-contact p {
+  margin-bottom: var(--sp4);
+  color: var(--txt-light);
+  font-size: var(--f-unit-4);
+}
+.wrapper.about-contact a {
+  font-size: var(--f-unit-4);
+  padding: var(--sp4);
+  background-color: var(--bg-support-blue-dark);
+  border-radius: var(--sp4);
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrapper.about-contact iconify-icon {
+  color: var(--brand);
+}
+.socials-content.wrapper {
+  border: var(--bd) var(--bg-tertiary);
+  flex-grow: 1;
+  border-radius: var(--sp8);
+  background-color: var(--bg-primary);
+  transition: var(--tran);
+}
+.wrapper.socials-content h4 {
+  font-size: var(--f-unit-5);
+  letter-spacing: calc(-0.05 * var(--f-unit-5));
+}
+.socials-content.wrapper,
+.socials-content.wrapper .wrapper {
+  display: grid;
+  gap: var(--sp4);
+}
+.socials-content.wrapper .wrapper a {
+  justify-content: start;
+}
+body:has(.socials-content.wrapper .wrapper a:hover) .socials-content.wrapper,
+body:has(.socials-content.wrapper .wrapper a:focus) .socials-content.wrapper {
+  --bg-c: hsla(var(--x-hs), var(--bg-l), var(--bg-a));
+  --bg-primary: var(--bg-c);
+  --bg-primary-op: hsla(var(--x-hs), var(--bg-l), var(--bg-a));
 }
