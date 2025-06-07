@@ -1104,18 +1104,20 @@ body.naved::after {
 }
 .about-page .sec1 .imgWrapper,
 .about-page .sec1 p.txt {
-  width: min(100%, 30rem);
-  height: 30rem;
+  width: min(100%, (80rem - (2 * var(--vp-2)) - var(--gap-4)) / 2);
+  min-height: 30rem;
   flex-grow: 1;
   border-radius: var(--sp8);
 }
 .imgWrapper {
   overflow: hidden;
+  max-height: 30rem;
 }
 .imgWrapper img {
   aspect-ratio: 1 / 1;
   width: 100%;
   height: 100%;
+
   object-fit: cover;
 }
 .sec1 .section-wrapper {
@@ -1131,7 +1133,8 @@ p.txt {
   background-color: var(--bg-support-blue-dark);
   /* border: var(--bd) var(--support-blue); */
   display: flex;
-  align-items: center;
+  align-items: end;
+  padding-bottom: 0;
 }
 p.txt span {
   display: block;
@@ -1140,4 +1143,28 @@ p.txt span {
   text-wrap: pretty;
   line-height: 2lh;
   color: var(--txt-secondary);
+}
+.set1 {
+  background-image: linear-gradient(
+    180deg,
+    var(--bg-support-blue-dark),
+    var(--bg-primary)
+  );
+}
+p.wrapper.sec2 {
+  background-color: transparent;
+  background-image: linear-gradient(
+    0deg,
+    var(--bg-support-blue-dark),
+    var(--bg-primary)
+  );
+  flex-direction: column;
+  align-items: start;
+  padding-top: 0;
+  gap: var(--gap-4);
+}
+p.wrapper.sec2 span {
+  max-width: 60ch !important;
+  display: block;
+  margin-inline: auto;
 }

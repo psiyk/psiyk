@@ -67,14 +67,15 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const li = section.querySelectorAll("li");
     const seca = section.querySelectorAll("a");
     const soca = document.querySelectorAll(".social-wrapper a");
+    const txt = document.querySelectorAll("p.txt");
 
     let elem = section;
     const sectionTl = gsap.timeline({
       scrollTrigger: {
         trigger: elem,
-        start: `top 80%`,
-        end: `bottom 80%`,
-        markers: false,
+        start: `top 60%`,
+        end: `bottom 50%`,
+        markers: true,
         toggleActions: "play none none reverse",
       },
       defaults: {
