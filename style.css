@@ -425,6 +425,16 @@ section .hero-text {
   /* background-image: var(--gradient-mint-light); */
   background-size: 200% 200%;
   background-position: center center;
+  transition: translate var(--tran), opacity var(--tran), filter var(--tran);
+}
+.cta-btns a.cta:hover,
+.cta-btns a.cta:focus {
+  translate: 0 -5px !important;
+}
+.cta-btns:has(:is(a.cta:hover, a.cta:focus))
+  a.cta:not(:is(a.cta:hover, a.cta:focus)) {
+  /* filter: brightness(0.8); */
+  opacity: 0.8 !important;
 }
 .cta-btns .cta:first-child {
   background-color: var(--btn-black-bg);
@@ -938,7 +948,7 @@ footer {
   background-repeat: no-repeat;
   background-position: top center;
 }
-footer::before {
+footer::after {
   content: "";
   position: absolute;
   inset: 0 0 0 0;
@@ -949,7 +959,8 @@ footer::before {
     transparent
   );
   z-index: 1;
-  posinter-events: none;
+  pointer-events: none;
+  display: none;
 }
 footer .logo {
   color: var(--brand);
@@ -993,6 +1004,7 @@ footer nav ul {
 footer h4 {
   padding: var(--sp4);
   color: var(--accent-mint-txt-tertiary);
+  background-color: var(--bg-support-blue-dark);
 }
 footer nav a {
   padding: var(--sp4);
@@ -1000,11 +1012,14 @@ footer nav a {
   transition: var(--tran);
   /* border: 1px solid; */
 }
+
 .copy {
+  position: relative;
+  z-index: 3 !important;
   text-align: left;
   font-weight: bold;
   color: var(--brand);
-  padding: var(--sp2);
+  padding: var(--sp2) var(--sp2) var(--sp8);
 }
 footer nav ul:has(a:hover) a:not(a:hover),
 footer nav ul:has(a:focus) a:not(a:focus) {
@@ -1255,9 +1270,23 @@ p.wrapper.sec2 span {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: margin-top var(--tran), transform var(--tran), color var(--tran),
+    scale var(--tran);
+}
+.wrapper.about-contact a:hover,
+.wrapper.about-contact a:focus {
+  /* translate: 0 10px; */
+  margin-top: 10px;
+}
+.wrapper.about-contact a:hover iconify-icon,
+.wrapper.about-contact a:focus iconify-icon {
+  transform: rotateY(180deg);
+  scale: 1.75;
+  color: var(--accent-mint);
 }
 .wrapper.about-contact iconify-icon {
   color: var(--brand);
+  transition: inherit;
 }
 .socials-content.wrapper {
   border: var(--bd) var(--bg-tertiary);
@@ -1277,6 +1306,11 @@ p.wrapper.sec2 span {
 }
 .socials-content.wrapper .wrapper a {
   justify-content: start;
+}
+.socials-content.wrapper .wrapper a:hover {
+  filter: brightness(0.75);
+  padding-left: var(--sp6);
+  scale: 1.1;
 }
 body:has(.socials-content.wrapper .wrapper a:hover) .socials-content.wrapper,
 body:has(.socials-content.wrapper .wrapper a:focus) .socials-content.wrapper {

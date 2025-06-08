@@ -8,21 +8,21 @@ viewBox="0 0 7785.95 2723.59"
  <defs>
   <style type="text/css">
    <![CDATA[
-    .str14 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str13 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str5 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str6 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str0 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str1 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str4 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str2 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str7 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str12 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str10 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str11 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str9 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str3 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
-    .str8 {stroke:rgb(20, 60, 40);stroke-width:20.83;stroke-miterlimit:2.61313}
+    .str14 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str13 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str5 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str6 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str0 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str1 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str4 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str2 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str7 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str12 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str10 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str11 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str9 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str3 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
+    .str8 {stroke:hsl(275, 64%, 50%);stroke-width:3;stroke-miterlimit:10}
     .fil0 {fill:none}
    ]]>
   </style>

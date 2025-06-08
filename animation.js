@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         .querySelector(".about-contact.wrapper.sec3")
         .classList.remove("anim");
     },
-    markers: true,
+    markers: false,
     toggleActions: "play none none reverse",
   });
 });
