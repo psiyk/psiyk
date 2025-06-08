@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <title>Document</title> -->
+    <title>
+      psyke - Success Ikechukwu | Contact – Start a Conversation or Build
+      Something Together
+    </title>
+
+    <link rel="stylesheet" href="../style.css" defer />
+
+    <link rel="shortcut icon" href="../logo/logo.svg" type="image/x-icon" />
+    <script src="../script.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://code.iconify.design/iconify-icon/1.0.8/iconify-icon.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
+      defer
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollToPlugin.min.js"
+      defer
+    ></script>
+    <script src="../animation.js" defer></script>
+  </head>
+  <body class="contact-page">
+    <div class="page-wrapper">
+      <header>
+        <div class="header-wrapper">
+          <a href="../index.html">
+            <div class="logo" style="--color-brand: var(--accent-mint)">
+              <h1>psyke</h1>
+            </div>
+          </a>
+          <nav>
+            <a href="#">Projects</a>
+            <a href="#">Get CV</a>
+            <a href="../about" class="cta">About Me</a>
+          </nav>
+          <button id="nav-btn" class="nav-btn" title="Menu"></button>
+        </div>
+      </header>
+      <nav id="nav2" class="nav2">
+        <a href="../index.html">Home</a>
+        <a href="#">Projects</a>
+        <a href="#">Get CV</a>
+        <a href="../about" class="cta">About Me</a>
+      </nav>
+      <section class="hero">
+        <div class="hero-text">
+          <h1>
+            <span
+              >Let’s Talk – Start a Conversation or Build Something Together
+            </span>
+          </h1>
+          <div class="hero-secondary">
+            <p>dss</p>
+            <form action="post" id="messageForm" class="wrapper messageform">
+              <fieldset>
+                <label for="name">Your Name</label>
+                <div class="input-wrapper">
+                  <iconify-icon icon="hugeicons:ai-user"></iconify-icon
+                  ><input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="e.g Success Ikechukwu"
+                    required
+                  />
+                </div>
+              </fieldset>
+              <fieldset>
+                <label for="email">Your Email Addresss</label>
+                <div class="input-wrapper">
+                  <iconify-icon icon="hugeicons:ai-mail-01"></iconify-icon
+                  ><input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="emailaddress@email.com"
+                    required
+                  />
+                </div>
+              </fieldset>
+              <fieldset>
+                <label for="organisation"
+                  >Your Organisation. <span>Not Required</span></label
+                >
+                <div class="input-wrapper">
+                  <iconify-icon icon="formkit:people"></iconify-icon
+                  ><input
+                    type="text"
+                    id="organisation"
+                    name="organisation"
+                    placeholder=" e.g. Psyke "
+                  />
+                </div>
+              </fieldset>
+              <fieldset class="message-field">
+                <label for="message">Your Message </label>
+                <textarea
+                  name="message"
+                  id="message"
+                  placeholder="Your Text Goes  Here"
+                ></textarea>
+              </fieldset>
+              <button type="submit" form="messageForm">Submit</button>
+            </form>
+            <div class="cta-btns">
+              <a
+                href="mailto:ikechukwuidoko101@gmail.com"
+                target="_blank"
+                class="cta"
+                rel="noopener"
+                ><iconify-icon icon="hugeicons:ai-mail-02"></iconify-icon>
+                Message Me </a
+              ><a href="#" class="cta" rel="no-opener" target="_blank"
+                ><iconify-icon icon="hugeicons:share-02"></iconify-icon>My
+                Socials</a
+              >
+              <a
+                href="https://github.com/psiyk"
+                target="_blank"
+                class="cta"
+                rel="noopener"
+                title="My Github Repository"
+                ><iconify-icon icon="hugeicons:github-01"></iconify-icon
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

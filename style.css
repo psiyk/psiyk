@@ -426,16 +426,13 @@ section .hero-text {
   background-size: 200% 200%;
   background-position: center center;
   transition: translate var(--tran), opacity var(--tran), filter var(--tran);
+  opacity: 1;
 }
 .cta-btns a.cta:hover,
 .cta-btns a.cta:focus {
   translate: 0 -5px !important;
 }
-.cta-btns:has(:is(a.cta:hover, a.cta:focus))
-  a.cta:not(:is(a.cta:hover, a.cta:focus)) {
-  /* filter: brightness(0.8); */
-  opacity: 0.8 !important;
-}
+
 .cta-btns .cta:first-child {
   background-color: var(--btn-black-bg);
   border-color: var(--btn-accent-border);

@@ -27,11 +27,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
     .fromTo(
       ".hero h1",
       {
-        y: "20px",
+        y: 20,
         // color: txtPrimary,
         // clearProps: "all",
       },
       {
+        opacity: 1,
         ease: "expoScale(0.5,7,none)",
         color: txtPrimaryOp,
         clearProps: "all",
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         x: -10,
         ease: "expoScale(0.5,7,none)",
         stagger: 0.2,
+        clearProps: "all",
       },
       "-=0.5"
     );
