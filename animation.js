@@ -73,8 +73,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const sectionTl = gsap.timeline({
       scrollTrigger: {
         trigger: elem,
-        start: `top 60%`,
-        end: `bottom 50%`,
+        start: `top 70%`,
+        end: `bottom 70%`,
         markers: false,
         toggleActions: "play none none reverse",
       },
@@ -91,17 +91,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
       stagger: 0.1,
     });
   });
-  gsap.from("div.about-contact.wrapper", {
-    backgroundSize: "200% 400%",
-    backgroundPosition: "bottom center",
-    scrollTrigger: {
-      trigger: ".about-contact.wrapper",
-      start: "top 60%",
-      end: "bottom 50%",
-      toggleActions: "play none none reverse",
-      scrub: true,
-      markers: true, // uncomment for debugging
+  ScrollTrigger.create({
+    trigger: ".about-contact.wrapper.sec3",
+    start: "top 70%",
+    // end: "bottom 70%",
+    // toggleClass: "anim",
+    onEnter: () => {
+      document
+        .querySelector(".about-contact.wrapper.sec3")
+        .classList.add("anim");
     },
-    ease: "power1.inOut",
+    onLeaveBack: () => {
+      document
+        .querySelector(".about-contact.wrapper.sec3")
+        .classList.remove("anim");
+    },
+    markers: true,
+    toggleActions: "play none none reverse",
   });
 });
