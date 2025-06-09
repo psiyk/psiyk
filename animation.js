@@ -24,25 +24,30 @@ document.addEventListener("DOMContentLoaded", (event) => {
     clearProps: "all",
   });
   heroTimeline
-    .fromTo(
-      ".hero h1",
+    .from(
+      ".hero-primary h1",
       {
         y: 20,
-        // color: txtPrimary,
-        // clearProps: "all",
-      },
-      {
-        opacity: 1,
         ease: "expoScale(0.5,7,none)",
-        color: txtPrimaryOp,
-        clearProps: "all",
+        filter: "blur(2px)",
+        duration: 0.5,
       }
+      // "-=0.5"
     )
     .from(".hero-secondary p", {
       x: -20,
       filter: "blur(2px)",
       ease: "expoScale(0.5,7,none)",
     })
+    .from(
+      ".hero-secondary .contact-wrapper",
+      {
+        stagger: 0.1,
+        ease: "expoScale(0.5,7,none)",
+        y: -20,
+      },
+      "-=0.5"
+    )
     .from("header", { y: "-20", ease: "expoScale(0.5,7,none)" }, "-=0.5")
     .from("header nav a", {
       y: -20,
@@ -111,4 +116,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
     markers: false,
     toggleActions: "play none none reverse",
   });
+});
+ScrollTrigger.create({
+  trigger: ".about-contact.wrapper.sec3",
+  start: "top 70%",
+  // end: "bottom 70%",
+  // toggleClass: "anim",
+  onEnter: () => {
+    document
+      .querySelector(".about-contact.header-wrapper.")
+      .classList.add("anim");
+  },
+  onLeaveBack: () => {
+    document
+      .querySelector(".about-contact.wrapper.sec3")
+      .classList.remove("anim");
+  },
+  markers: false,
+  toggleActions: "play none none reverse",
 });

@@ -266,6 +266,9 @@ a,
 button {
   display: block;
 }
+button {
+  cursor: pointer;
+}
 input,
 textarea {
   outline: none;
@@ -360,6 +363,7 @@ section .hero-text {
   align-items: end;
 }
 .hero-text h1 {
+  border: 1px solid #000;
   font-size: var(--f-v-2) !important;
   line-height: 1.2 * 4rem;
   font-weight: normal;
@@ -403,6 +407,7 @@ section .hero-text {
   line-height: 2lh;
   font-weight: 500;
   margin-bottom: var(--sp6);
+  flex-grow: 0.5;
 }
 
 .cta-btns {
@@ -1233,7 +1238,7 @@ p.wrapper.sec2 span {
   background-size: 200% 400%;
   background-position: bottom center;
 }
-.wrapper.about-contact.anim {
+.anim {
   animation: transit 5s ease-in-out forwards;
 }
 @keyframes transit {
@@ -1287,7 +1292,7 @@ p.wrapper.sec2 span {
 }
 .socials-content.wrapper {
   border: var(--bd) var(--bg-tertiary);
-  flex-grow: 1;
+  /* flex-grow: 0.1; */
   border-radius: var(--sp8);
   background-color: var(--bg-primary);
   transition: var(--tran);
@@ -1314,4 +1319,122 @@ body:has(.socials-content.wrapper .wrapper a:focus) .socials-content.wrapper {
   --bg-c: hsla(var(--x-hs), var(--bg-l), var(--bg-a));
   --bg-primary: var(--bg-c);
   --bg-primary-op: hsla(var(--x-hs), var(--bg-l), var(--bg-a));
+}
+.contact-hero.hero .hero-text {
+  display: grid;
+  gap: var(--gap-4);
+  grid-template-areas:
+    "a b"
+    "c b";
+  justify-items: start;
+  align-content: start;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto auto;
+  border: 1px solid #000;
+}
+.contact-hero.hero .hero-text > * {
+  align-content: start !important;
+}
+@media screen and (max-width: 768px) {
+  .contact-hero.hero .hero-text {
+    grid-template-areas:
+      "a c"
+      "b b";
+  }
+}
+@media screen and (max-width: 500px) {
+  .contact-hero.hero .hero-text {
+    grid-template-areas:
+      "a"
+      "c"
+      "b" !important;
+  }
+}
+.hero-secondary.contact-wrapper {
+  padding: max(var(--vp-2), var(--sp8));
+  background-color: var(--brand);
+  border-radius: var(--sp8);
+  /* flex-grow: 0.5; */
+  margin-inline: auto;
+  background-image: url(images/bgImages/googles.svg);
+  background-repeat: no-repeat;
+  background-attachment: local;
+  /* background-size: 200% 400%; */
+  background-size: 200% 400%;
+  background-position: bottom center;
+  grid-area: b;
+  width: 100%;
+}
+.hero-secondary.contact-wrapper form {
+  border: none !important;
+  display: grid;
+  color: var(--txt-light);
+  padding-top: var(--sp4);
+}
+.hero-secondary.contact-wrapper form fieldset {
+  border: none;
+  margin-bottom: var(--sp8);
+}
+.hero-secondary.contact-wrapper form .input-wrapper {
+  border-radius: 0;
+  padding: var(--sp2) 0 var(--sp4);
+  background-color: transparent;
+  border: none;
+  color: var(--txt-light);
+  border-bottom: var(--bd2) var(--txt-light);
+}
+.hero-secondary.contact-wrapper form .input-wrapper:focus-within,
+.hero-secondary.contact-wrapper form textarea:focus {
+  border: none !important;
+  border-bottom: var(--bd2) !important;
+  border-color: var(--accent-mint) !important;
+}
+.hero-secondary.contact-wrapper form input {
+  margin-top: 0;
+  border: none;
+  width: 100%;
+  outline: none;
+}
+.hero-secondary.contact-wrapper form fieldset input::placeholder {
+  color: var(--txt-light-tertiary) !important;
+}
+.hero-secondary.contact-wrapper .message-field label {
+  color: var(--txt-light);
+  font-weight: 500;
+  margin-bottom: var(--sp4);
+}
+.hero-secondary.contact-wrapper form label {
+  font-weight: 500;
+  font-size: var(--f-unit-4);
+}
+.hero-secondary.contact-wrapper form textarea {
+  padding: 0;
+  border-radius: 0;
+  background-color: transparent;
+  border: none;
+  border-bottom: var(--bd2) var(--txt-light) !important;
+}
+.hero-secondary.contact-wrapper form textarea::placeholder {
+  color: var(--txt-light-tertiary) !important;
+}
+.hero-secondary.contact-wrapper fieldset.message-field {
+  margin-bottom: 0;
+}
+form button.cta {
+  margin-top: var(--sp1);
+  border: none;
+  background-color: var(--txt-light);
+  color: var(--btn-black-bg);
+  font-weight: 600;
+  padding: var(--sp4);
+  border-radius: 0 0 var(--sp1) var(--sp1);
+}
+.contact-hero.hero .hero-text h1 {
+  width: 100%;
+  min-width: minx(30rem, 100%);
+  margin-inline: auto;
+  grid-area: a;
+}
+.mast {
+  border: 1px solid #000;
 }
