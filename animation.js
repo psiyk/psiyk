@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
   heroTimeline
     .from(
-      ".hero-primary h1",
+      ".hero-text h1",
       {
         y: 20,
         ease: "expoScale(0.5,7,none)",

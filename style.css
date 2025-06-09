@@ -1301,8 +1301,8 @@ p.wrapper.sec2 span {
   font-size: var(--f-unit-5);
   letter-spacing: calc(-0.05 * var(--f-unit-5));
 }
-.socials-content.wrapper,
-.socials-content.wrapper .wrapper {
+.socials-content.wrapper:not(.social-wrapper),
+.socials-content.wrapper .wrapper:not(.mast) {
   display: grid;
   gap: var(--sp4);
 }
@@ -1324,8 +1324,8 @@ body:has(.socials-content.wrapper .wrapper a:focus) .socials-content.wrapper {
   display: grid;
   gap: var(--gap-4);
   grid-template-areas:
-    "a b"
-    "c b";
+    "a c"
+    "b b";
   justify-items: start;
   align-content: start;
   grid-template-columns: 1fr 2fr;
@@ -1335,19 +1335,12 @@ body:has(.socials-content.wrapper .wrapper a:focus) .socials-content.wrapper {
 .contact-hero.hero .hero-text > * {
   align-content: start !important;
 }
-@media screen and (max-width: 768px) {
-  .contact-hero.hero .hero-text {
-    grid-template-areas:
-      "a c"
-      "b b";
-  }
-}
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 700px) {
   .contact-hero.hero .hero-text {
     grid-template-areas:
       "a"
       "c"
-      "b" !important;
+      "b";
   }
 }
 .hero-secondary.contact-wrapper {
@@ -1431,10 +1424,27 @@ form button.cta {
 }
 .contact-hero.hero .hero-text h1 {
   width: 100%;
-  min-width: minx(30rem, 100%);
+  min-width: min(30rem, 100%);
   margin-inline: auto;
   grid-area: a;
 }
-.mast {
-  border: 1px solid #000;
+.hero.contact-hero > .hero-text > .wrapper.socials-content.social-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-4);
+  flex-wrap: wrap;
+  border: none;
+  grid-area: c;
+}
+.hero .wrapper.socials-content.social-wrapper .contact-socials.wrapper.mast a {
+  max-width: fit-content;
+}
+.contact-socials.wrapper.mast {
+  flex-direction: row !important;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: var(--sp4);
+
+  /* max-width: fit-content; */
 }
