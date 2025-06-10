@@ -63,3 +63,24 @@ document.addEventListener("click", function (event) {
     body.classList.remove("naved");
   }
 });
+
+// const socialLinks = document.querySelectorAll(".social-wrapper a");
+const socialMap = {
+  github: ["https://github.com/psiyk", "GitHub"],
+  "x-twitter": ["https://x.com/ps_iyk", "X (Twitter)"],
+  linkedin: ["https://www.linkedin.com/in/psiyk", "LinkedIn"],
+  instagram: ["https://www.instagram.com/psycke_1", "Instagram"],
+  whatsapp: ["https://wa.me/2349072041772", "WhatsApp"],
+  telegram: ["https://t.me/successiyk03", "Telegram"],
+  mail: ["mailto:ikechukwuidoko101@gmail.com", "Email Me"],
+  call: ["tel:+2349072041772", "Call Me"],
+};
+
+document.querySelectorAll(".c-a a").forEach((link) => {
+  for (let className in socialMap) {
+    if (link.classList.contains(className)) {
+      [link.href, link.title] = socialMap[className];
+      break;
+    }
+  }
+});
