@@ -1478,3 +1478,12 @@ form button.cta:hover {
 
   /* min-width: 100% !important; */
 }
+iframe {
+  display: block;
+  width: 100%;
+  padding-inline: var(--sp2);
+  height: 80vh;
+}
+iframe > body.c23.doc-content {
+  margin-inline: auto;
+}
