@@ -1,9 +1,5 @@
 /* @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
-
-html {
-  font-size: 80%;
-}
 :root {
   interpolate-size: allow-keywords;
   --font-1: "Playfair Display", sans-serif;
@@ -166,6 +162,8 @@ html {
   --restapi-hs: 280, 45%;
   --seo-hs: 125, 45%;
 
+  --call-hs: 145, 65%;
+  --mail-hs: 200, 90%;
   --linkedin-hs: 210, 70%;
   --x-twitter-hs: 220, 5%;
   --telegram-hs: 200, 80%;
@@ -249,6 +247,10 @@ html {
   :root {
     --bd: 1px solid;
   }
+}
+
+html {
+  font-size: 80%;
 }
 * {
   font-family: var(--f-unit-1);
@@ -363,7 +365,6 @@ section .hero-text {
   align-items: end;
 }
 .hero-text h1 {
-  border: 1px solid #000;
   font-size: var(--f-v-2) !important;
   line-height: 1.2 * 4rem;
   font-weight: normal;
@@ -901,7 +902,14 @@ section.socials:has(a:focus) a:not(a:focus) {
 .page-wrapper:has(.social-wrapper :is(a.telegram:hover, a.telegram:focus)) {
   --x-hs: var(--telegram-hs);
 }
-
+.social-wrapper a.mail,
+.page-wrapper:has(.social-wrapper :is(a.mail:hover, a.mail:focus)) {
+  --x-hs: var(--mail-hs);
+}
+.social-wrapper a.call,
+.page-wrapper:has(.social-wrapper :is(a.call:hover, a.call:focus)) {
+  --x-hs: var(--call-hs);
+}
 .socials::after,
 .socials::before {
   --width: max(100vw - 80rem, var(--vp-2), var(--sp4));
@@ -1219,8 +1227,11 @@ p.wrapper.sec2 span {
 }
 
 .wrapper.about-contact,
-.wrapper.socials-content {
+.wrapper.socials-content:not(.hero .wrapper.socials-content) {
   width: min(100%, (80rem - (2 * var(--vp-2)) - var(--gap-4)) / 2);
+}
+.wrapper.about-contact,
+.wrapper.socials-content {
   padding: var(--sp8);
 }
 .wrapper.about-contact {
@@ -1292,14 +1303,18 @@ p.wrapper.sec2 span {
 }
 .socials-content.wrapper {
   border: var(--bd) var(--bg-tertiary);
-  /* flex-grow: 0.1; */
+  display: flex;
+  flex-flow: column;
+  gap: var(--sp4);
   border-radius: var(--sp8);
   background-color: var(--bg-primary);
   transition: var(--tran);
+  flex-grow: 1;
 }
 .wrapper.socials-content h4 {
   font-size: var(--f-unit-5);
   letter-spacing: calc(-0.05 * var(--f-unit-5));
+  color: var(--txt-secondary);
 }
 .socials-content.wrapper:not(.social-wrapper),
 .socials-content.wrapper .wrapper:not(.mast) {
@@ -1321,27 +1336,29 @@ body:has(.socials-content.wrapper .wrapper a:focus) .socials-content.wrapper {
   --bg-primary-op: hsla(var(--x-hs), var(--bg-l), var(--bg-a));
 }
 .contact-hero.hero .hero-text {
-  display: grid;
+  display: flex;
   gap: var(--gap-4);
-  grid-template-areas:
-    "a c"
-    "b b";
-  justify-items: start;
-  align-content: start;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: auto auto;
-  border: 1px solid #000;
+
+  align-items: stretch;
+  flex-flow: row wrap;
+}
+.contact-hero.hero .hero-primary {
+  display: flex;
+  width: min(30rem, 100%);
+  flex-flow: column;
+  gap: var(--gap-4);
+  flex-grow: 1;
 }
 .contact-hero.hero .hero-text > * {
-  align-content: start !important;
 }
 @media screen and (max-width: 700px) {
-  .contact-hero.hero .hero-text {
-    grid-template-areas:
-      "a"
-      "c"
-      "b";
-  }
+}
+.hero-secondary.contact-wrapper h4 {
+  font-size: var(--f-unit-5);
+  margin-bottom: var(--sp4);
+  color: var(--txt-light);
+  letter-spacing: calc(-0.05 * var(--f-unit-5));
+  font-weight: bolder;
 }
 .hero-secondary.contact-wrapper {
   padding: max(var(--vp-2), var(--sp8));
@@ -1355,14 +1372,17 @@ body:has(.socials-content.wrapper .wrapper a:focus) .socials-content.wrapper {
   /* background-size: 200% 400%; */
   background-size: 200% 400%;
   background-position: bottom center;
-  grid-area: b;
-  width: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  flex-grow: 1;
 }
 .hero-secondary.contact-wrapper form {
   border: none !important;
   display: grid;
   color: var(--txt-light);
   padding-top: var(--sp4);
+  width: 100%;
 }
 .hero-secondary.contact-wrapper form fieldset {
   border: none;
@@ -1422,6 +1442,17 @@ form button.cta {
   padding: var(--sp4);
   border-radius: 0 0 var(--sp1) var(--sp1);
 }
+form button.cta:active,
+form button.cta:focus {
+  background-color: var(--btn-black-bg);
+  color: var(--accent-mint-light);
+  outline: none;
+}
+form button.cta:hover {
+  opacity: 0.75;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
 .contact-hero.hero .hero-text h1 {
   width: 100%;
   min-width: min(30rem, 100%);
@@ -1441,10 +1472,9 @@ form button.cta {
 }
 .contact-socials.wrapper.mast {
   flex-direction: row !important;
-  width: 100%;
   display: flex;
   flex-flow: row wrap;
-  gap: var(--sp4);
+  gap: var(--sp4) calc(var(--sp4) - 4px);
 
-  /* max-width: fit-content; */
+  /* min-width: 100% !important; */
 }
